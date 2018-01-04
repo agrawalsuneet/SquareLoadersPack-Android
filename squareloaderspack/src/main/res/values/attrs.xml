@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SquareView">
+        <attr name="squareLength" format="dimension" />
+        <attr name="squareColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="RectangleView">
+        <attr name="rectWidth" format="dimension" />
+        <attr name="rectHeight" format="dimension" />
+        <attr name="rectColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ZipZapLoader">
+        <attr name="zipzap_squareLength" format="dimension" />
+
+        <attr name="zipzap_firstSquareColor" format="color" />
+        <attr name="zipzap_secondSquareColor" format="color" />
+        <attr name="zipzap_thirdSquareColor" format="color" />
+        <attr name="zipzap_forthSquareColor" format="color" />
+
+        <attr name="zipzap_animDuration" format="integer" />
+        <attr name="zipzap_startLoadingDefault" format="boolean" />
+        <attr name="zipzap_fromScale" format="float" />
+        <attr name="zipzap_toScale" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="WaveLoader">
+        <attr name="wave_noOfDots" format="integer" />
+        <attr name="wave_rectWidth" format="dimension" />
+        <attr name="wave_rectHeight" format="dimension" />
+        <attr name="wave_rectDistance" format="dimension" />
+
+        <attr name="wave_isSingleColor" format="boolean" />
+        <attr name="wave_rectColor" format="color" />
+        <attr name="wave_rectColorsArray" format="reference" />
+
+        <attr name="wave_animDuration" format="integer" />
+        <attr name="wave_delayDuration" format="integer" />
+        <attr name="wave_interpolator" format="reference" />
+    </declare-styleable>
+
+</resources>
