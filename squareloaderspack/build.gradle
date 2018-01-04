@@ -5,16 +5,20 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    PUBLISH_GROUP_ID = 'com.agrawalsuneet.androidlibs'
+    PUBLISH_ARTIFACT_ID = 'squareloaderspack'
+    PUBLISH_VERSION = '0.1'
+}
+
 android {
     compileSdkVersion 26
-
-
 
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
-        versionName "1.0"
+        versionName "0.1"
     }
 
     buildTypes {
@@ -34,3 +38,5 @@ android {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
+
+apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'

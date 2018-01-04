@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.agrawalsuneet.fourfoldloader.loaders.WaveLoader
+    <com.agrawalsuneet.squareloaderspack.loaders.WaveLoader
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:wave_animDuration="500"
@@ -21,7 +21,7 @@
         app:wave_rectWidth="16dp" />
 
 
-    <com.agrawalsuneet.fourfoldloader.loaders.WaveLoader
+    <com.agrawalsuneet.squareloaderspack.loaders.WaveLoader
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
