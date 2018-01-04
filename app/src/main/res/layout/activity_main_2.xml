@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.agrawalsuneet.fourfoldloader.loaders.WaveLoader
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:wave_animDuration="500"
+        app:wave_delayDuration="100"
+        app:wave_interpolator="@android:anim/linear_interpolator"
+        app:wave_isSingleColor="true"
+        app:wave_noOfDots="10"
+        app:wave_rectColor="@color/blue"
+        app:wave_rectDistance="8dp"
+        app:wave_rectHeight="80dp"
+        app:wave_rectWidth="16dp" />
+
+
+    <com.agrawalsuneet.fourfoldloader.loaders.WaveLoader
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:wave_animDuration="500"
+        app:wave_delayDuration="100"
+        app:wave_interpolator="@android:anim/linear_interpolator"
+        app:wave_isSingleColor="false"
+        app:wave_noOfDots="4"
+        app:wave_rectColorsArray="@array/waveloader_colorsarray"
+        app:wave_rectDistance="8dp"
+        app:wave_rectHeight="80dp"
+        app:wave_rectWidth="16dp" />
+
+</LinearLayout>

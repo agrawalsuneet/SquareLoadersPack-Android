@@ -3,4 +3,19 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="white">#ffffff</color>
+
+    <color name="pink">#E91E63</color>
+    <color name="blue">#2196F3</color>
+    <color name="purple">#9C27B0</color>
+    <color name="indigo">#3F51B5</color>
+    <color name="yellow">#ffff00</color>
+
+    <integer-array name="waveloader_colorsarray">
+        <item>@color/red</item>
+        <item>@color/yellow</item>
+        <item>@color/green</item>
+        <item>@color/grey</item>
+    </integer-array>
 </resources>
