@@ -42,7 +42,7 @@ open class WaveLoader : LinearLayout, LoaderContract {
 
     open var interpolator: Interpolator = LinearInterpolator()
 
-    private lateinit var rectsArrayList: ArrayList<RectangleView?>
+    protected lateinit var rectsArrayList: ArrayList<RectangleView?>
 
     constructor(context: Context, noOfRects: Int,
                 rectWidth: Int, rectHeight: Int, rectDistance: Int,
@@ -143,7 +143,7 @@ open class WaveLoader : LinearLayout, LoaderContract {
         })
     }
 
-    private fun startLoading() {
+    open protected fun startLoading() {
 
         for (count in 0 until noOfRects) {
             val rectScaleAnim = getTranslateAnim()
@@ -171,7 +171,7 @@ open class WaveLoader : LinearLayout, LoaderContract {
         }
     }
 
-    open protected fun getTranslateAnim(): ScaleAnimation {
+    private fun getTranslateAnim(): ScaleAnimation {
         val transAnim = ScaleAnimation(1.0f, 1.0f, 0.5f, 2.0f,
                 Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
         transAnim.duration = animDuration.toLong()

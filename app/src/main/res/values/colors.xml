@@ -11,10 +11,11 @@
     <color name="purple">#9C27B0</color>
     <color name="indigo">#3F51B5</color>
     <color name="yellow">#ffff00</color>
+    <color name="amber">#FFC200</color>
 
     <integer-array name="waveloader_colorsarray">
         <item>@color/red</item>
-        <item>@color/yellow</item>
+        <item>@color/amber</item>
         <item>@color/green</item>
         <item>@color/grey</item>
     </integer-array>

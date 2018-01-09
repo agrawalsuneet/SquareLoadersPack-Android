@@ -1,8 +1,10 @@
 package com.agrawalsuneet.squareloaderspack.loaders
 
 import android.content.Context
+import android.os.Handler
 import android.util.AttributeSet
 import android.view.Gravity
+import android.view.View
 import android.view.animation.*
 import com.agrawalsuneet.squareloaderspack.R
 import java.util.*
@@ -83,21 +85,66 @@ class MusicPlayerLoader : WaveLoader {
         setVerticalGravity(Gravity.BOTTOM)
     }
 
-    override fun getTranslateAnim(): ScaleAnimation {
-        val transAnim = ScaleAnimation(1.0f, 1.0f, 0.1f, getRandom(0.5f, 2.0f),
-                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 1.0f)
-        transAnim.duration = animDuration.toLong()
-        transAnim.fillAfter = true
-        transAnim.repeatCount = 1
-        transAnim.repeatMode = Animation.REVERSE
-        transAnim.interpolator = interpolator
+    override fun startLoading() {
 
-        return transAnim
+        for (count in 0 until noOfRects) {
+            val rectView = rectsArrayList[count]
+            val listener = AnimListener(rectView!!, animDuration, interpolator)
+
+            Handler().postDelayed({
+                listener.startAnimation()
+            }, (count * delayDuration).toLong())
+        }
     }
 
-    private val random = Random()
 
-    private fun getRandom(from: Float, to: Float): Float {
-        return (from + (random.nextFloat() * (to - from)))
+    private class AnimListener : Animation.AnimationListener {
+
+        var animDuration: Int = 500
+        var interpolator: Interpolator = LinearInterpolator()
+
+        var view: View? = null
+
+        constructor(view: View, animDuration: Int, interpolator: Interpolator) {
+            this.view = view
+            this.animDuration = animDuration
+            this.interpolator = interpolator
+        }
+
+
+        fun startAnimation() {
+            val rectScaleAnim = getTranslateAnim()
+            view?.startAnimation(rectScaleAnim)
+            rectScaleAnim.setAnimationListener(this)
+        }
+
+        override fun onAnimationEnd(animation: Animation?) {
+            startAnimation()
+        }
+
+        override fun onAnimationStart(animation: Animation?) {
+        }
+
+        override fun onAnimationRepeat(animation: Animation?) {
+        }
+
+        fun getTranslateAnim(): ScaleAnimation {
+            val transAnim = ScaleAnimation(1.0f, 1.0f, 0.1f, getRandom(0.5f, 2.0f),
+                    Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 1.0f)
+            transAnim.duration = animDuration.toLong()
+            transAnim.fillAfter = true
+            transAnim.repeatCount = 1
+            transAnim.repeatMode = Animation.REVERSE
+            transAnim.interpolator = interpolator
+
+            return transAnim
+        }
+
+        private val random = Random()
+
+        private fun getRandom(from: Float, to: Float): Float {
+            return (from + (random.nextFloat() * (to - from)))
+        }
+
     }
 }
