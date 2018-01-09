@@ -7,88 +7,88 @@
     android:gravity="center"
     android:orientation="vertical">
 
-   <!-- <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_margin="16dp"
+       android:gravity="center"
+       android:orientation="horizontal">
 
 
-        <com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:musicplayer_animDuration="500"
-            app:musicplayer_delayDuration="200"
-            app:musicplayer_interpolator="@android:anim/linear_interpolator"
-            app:musicplayer_isSingleColor="true"
-            app:musicplayer_noOfDots="5"
-            app:musicplayer_rectColor="@color/red"
-            app:musicplayer_rectDistance="2dp"
-            app:musicplayer_rectHeight="30dp"
-            app:musicplayer_rectWidth="8dp" />
+      <com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          app:musicplayer_animDuration="500"
+          app:musicplayer_delayDuration="200"
+          app:musicplayer_interpolator="@android:anim/linear_interpolator"
+          app:musicplayer_isSingleColor="true"
+          app:musicplayer_noOfDots="5"
+          app:musicplayer_rectColor="@color/red"
+          app:musicplayer_rectDistance="2dp"
+          app:musicplayer_rectHeight="30dp"
+          app:musicplayer_rectWidth="8dp" />
 
-        <com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="16dp"
-            app:musicplayer_animDuration="500"
-            app:musicplayer_delayDuration="200"
-            app:musicplayer_interpolator="@android:anim/linear_interpolator"
-            app:musicplayer_isSingleColor="true"
-            app:musicplayer_noOfDots="5"
-            app:musicplayer_rectColor="@color/amber"
-            app:musicplayer_rectDistance="2dp"
-            app:musicplayer_rectHeight="30dp"
-            app:musicplayer_rectWidth="8dp" />
+      <com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_marginLeft="16dp"
+          app:musicplayer_animDuration="500"
+          app:musicplayer_delayDuration="200"
+          app:musicplayer_interpolator="@android:anim/linear_interpolator"
+          app:musicplayer_isSingleColor="true"
+          app:musicplayer_noOfDots="5"
+          app:musicplayer_rectColor="@color/amber"
+          app:musicplayer_rectDistance="2dp"
+          app:musicplayer_rectHeight="30dp"
+          app:musicplayer_rectWidth="8dp" />
 
-        <com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="16dp"
-            app:musicplayer_animDuration="500"
-            app:musicplayer_delayDuration="200"
-            app:musicplayer_interpolator="@android:anim/linear_interpolator"
-            app:musicplayer_isSingleColor="true"
-            app:musicplayer_noOfDots="5"
-            app:musicplayer_rectColor="@color/green"
-            app:musicplayer_rectDistance="2dp"
-            app:musicplayer_rectHeight="30dp"
-            app:musicplayer_rectWidth="8dp" />
+      <com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_marginLeft="16dp"
+          app:musicplayer_animDuration="500"
+          app:musicplayer_delayDuration="200"
+          app:musicplayer_interpolator="@android:anim/linear_interpolator"
+          app:musicplayer_isSingleColor="true"
+          app:musicplayer_noOfDots="5"
+          app:musicplayer_rectColor="@color/green"
+          app:musicplayer_rectDistance="2dp"
+          app:musicplayer_rectHeight="30dp"
+          app:musicplayer_rectWidth="8dp" />
 
-    </LinearLayout>
-
-
-    <com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="16dp"
-        app:musicplayer_animDuration="500"
-        app:musicplayer_delayDuration="200"
-        app:musicplayer_interpolator="@android:anim/linear_interpolator"
-        app:musicplayer_isSingleColor="true"
-        app:musicplayer_noOfDots="8"
-        app:musicplayer_rectColor="@color/blue"
-        app:musicplayer_rectDistance="2dp"
-        app:musicplayer_rectHeight="80dp"
-        app:musicplayer_rectWidth="16dp"
-        android:layout_margin="16dp"/>
+   </LinearLayout>
 
 
-    <com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="16dp"
-        app:musicplayer_animDuration="500"
-        app:musicplayer_delayDuration="200"
-        app:musicplayer_interpolator="@android:anim/linear_interpolator"
-        app:musicplayer_isSingleColor="false"
-        app:musicplayer_noOfDots="4"
-        app:musicplayer_rectColor="@color/blue"
-        app:musicplayer_rectColorsArray="@array/waveloader_colorsarray"
-        app:musicplayer_rectDistance="2dp"
-        app:musicplayer_rectHeight="60dp"
-        app:musicplayer_rectWidth="12dp"
-        android:layout_margin="16dp"/>-->
+   <com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_margin="16dp"
+       android:layout_marginLeft="16dp"
+       app:musicplayer_animDuration="500"
+       app:musicplayer_delayDuration="200"
+       app:musicplayer_interpolator="@android:anim/linear_interpolator"
+       app:musicplayer_isSingleColor="true"
+       app:musicplayer_noOfDots="8"
+       app:musicplayer_rectColor="@color/blue"
+       app:musicplayer_rectDistance="2dp"
+       app:musicplayer_rectHeight="80dp"
+       app:musicplayer_rectWidth="16dp" />
+
+
+   <com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_margin="16dp"
+       android:layout_marginLeft="16dp"
+       app:musicplayer_animDuration="500"
+       app:musicplayer_delayDuration="200"
+       app:musicplayer_interpolator="@android:anim/linear_interpolator"
+       app:musicplayer_isSingleColor="false"
+       app:musicplayer_noOfDots="4"
+       app:musicplayer_rectColor="@color/blue"
+       app:musicplayer_rectColorsArray="@array/waveloader_colorsarray"
+       app:musicplayer_rectDistance="2dp"
+       app:musicplayer_rectHeight="60dp"
+       app:musicplayer_rectWidth="12dp" />
 
 </LinearLayout>
