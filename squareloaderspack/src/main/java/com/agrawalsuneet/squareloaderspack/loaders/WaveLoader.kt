@@ -15,18 +15,18 @@ import java.util.*
 /**
  * Created by suneet on 1/4/18.
  */
-class WaveLoader : LinearLayout, LoaderContract {
+open class WaveLoader : LinearLayout, LoaderContract {
 
-    var noOfRects: Int = 3
+    open var noOfRects: Int = 3
         set(value) {
             field = if (value < 2) 2 else value
             invalidate()
         }
 
-    var rectWidth: Int = 50
-    var rectHeight: Int = 200
+    open var rectWidth: Int = 50
+    open var rectHeight: Int = 200
 
-    var rectDistance: Int = 20
+    open var rectDistance: Int = 20
 
     var isSingleColor: Boolean = true
 
@@ -37,12 +37,12 @@ class WaveLoader : LinearLayout, LoaderContract {
             initView()
         }
 
-    var animDuration: Int = 500
-    var delayDuration: Int = 100
+    open var animDuration: Int = 500
+    open var delayDuration: Int = 100
 
-    var interpolator: Interpolator = LinearInterpolator()
+    open var interpolator: Interpolator = LinearInterpolator()
 
-    private lateinit var rectsArrayList: ArrayList<RectangleView?>
+    protected lateinit var rectsArrayList: ArrayList<RectangleView?>
 
     constructor(context: Context, noOfRects: Int,
                 rectWidth: Int, rectHeight: Int, rectDistance: Int,
@@ -107,7 +107,7 @@ class WaveLoader : LinearLayout, LoaderContract {
         setMeasuredDimension(calWidth, calHeight)
     }
 
-    private fun initView() {
+    open protected fun initView() {
         removeAllViews()
         removeAllViewsInLayout()
 
@@ -122,8 +122,6 @@ class WaveLoader : LinearLayout, LoaderContract {
             val rectangleView = RectangleView(context, rectWidth, rectHeight, color)
 
             val rectLayoutParam = LinearLayout.LayoutParams(rectWidth, rectHeight)
-            rectLayoutParam.topMargin = (rectHeight / 2)
-            rectLayoutParam.bottomMargin = (rectHeight / 2)
 
             if (count > 0) {
                 rectLayoutParam.leftMargin = rectDistance
@@ -145,7 +143,7 @@ class WaveLoader : LinearLayout, LoaderContract {
         })
     }
 
-    private fun startLoading() {
+    open protected fun startLoading() {
 
         for (count in 0 until noOfRects) {
             val rectScaleAnim = getTranslateAnim()

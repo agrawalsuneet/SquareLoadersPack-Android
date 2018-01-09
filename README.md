@@ -13,12 +13,17 @@
 
 please check a better quality demo [here](https://youtu.be/v0rr80_kAtw)
 
+### MusicPlayerLoader
+
+
+please check a better quality demo [here](https://youtu.be/v0rr80_kAtw)
+
 Other loaders: [SVGLoader](https://github.com/agrawalsuneet/SVGLoadersPack-Android), [ClockLoader](https://github.com/agrawalsuneet/LoadersPack), [RippleLoader](https://github.com/agrawalsuneet/LoadersPack), [RotatingCircularSticksLoader](https://github.com/agrawalsuneet/LoadersPack),  [LinearDotsLoader](https://github.com/agrawalsuneet/DotsLoader), [CircularDotsLoader](https://github.com/agrawalsuneet/DotsLoader), [LazyLoader](https://github.com/agrawalsuneet/DotsLoader), [TashieLoader](https://github.com/agrawalsuneet/DotsLoader), [SlidingLoader](https://github.com/agrawalsuneet/DotsLoader), [RotatingCircularDotsLoader](https://github.com/agrawalsuneet/DotsLoader), [FourFoldLoader](https://github.com/agrawalsuneet/FourFoldLoader)
 
 ## How To use
 include below dependency in build.gradle of application and compile it
 ```
-compile 'com.agrawalsuneet.androidlibs:squareloaderspack:0.1'
+compile 'com.agrawalsuneet.androidlibs:squareloaderspack:0.2'
 ```
 
 ### ZipZapLoader
@@ -130,6 +135,68 @@ WaveLoader waveLoader = new WaveLoader(this, 8, 40,
    
    
            container.addView(waveLoader);
+```
+
+
+### MusicPlayerLoader
+##### Through XML
+```
+<com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:musicplayer_animDuration="500"
+            app:musicplayer_delayDuration="200"
+            app:musicplayer_interpolator="@android:anim/linear_interpolator"
+            app:musicplayer_isSingleColor="true"
+            app:musicplayer_noOfDots="5"
+            app:musicplayer_rectColor="@color/green"
+            app:musicplayer_rectDistance="2dp"
+            app:musicplayer_rectHeight="30dp"
+            app:musicplayer_rectWidth="8dp" />
+
+
+    <com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            app:musicplayer_animDuration="500"
+            app:musicplayer_delayDuration="200"
+            app:musicplayer_interpolator="@android:anim/linear_interpolator"
+            app:musicplayer_isSingleColor="false"
+            app:musicplayer_noOfDots="4"
+            app:musicplayer_rectColor="@color/blue"
+            app:musicplayer_rectColorsArray="@array/waveloader_colorsarray"
+            app:musicplayer_rectDistance="2dp"
+            app:musicplayer_rectHeight="60dp"
+            app:musicplayer_rectWidth="12dp"/>
+```
+##### Through Code
+* Kotlin
+```
+         val loader = MusicPlayerLoader(this, 4, 40,
+                         100, 4, ContextCompat.getColor(baseContext, R.color.blue))
+                         .apply {
+                             /*isSingleColor = false
+                             rectColorsArray = resources.getIntArray(R.array.waveloader_colorsarray)*/
+                             interpolator = LinearInterpolator()
+                             animDuration = 500
+                             delayDuration = 200
+                         }
+         
+                 container.addView(loader)
+```
+
+* Java
+```
+MusicPlayerLoader loader = new MusicPlayerLoader(this, 4, 40,
+                100, 4, ContextCompat.getColor(this, R.color.blue));
+                    /*isSingleColor = false
+                    rectColorsArray = resources.getIntArray(R.array.waveloader_colorsarray)*/
+        loader.setInterpolator(new LinearInterpolator());
+        loader.setAnimDuration(500);
+        loader.setDelayDuration(100);
+
+        container.addView(loader);
 ```
   
   

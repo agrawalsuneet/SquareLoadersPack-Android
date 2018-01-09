@@ -41,4 +41,19 @@
         <attr name="wave_interpolator" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="MusicPlayerLoader">
+        <attr name="musicplayer_noOfDots" format="integer" />
+        <attr name="musicplayer_rectWidth" format="dimension" />
+        <attr name="musicplayer_rectHeight" format="dimension" />
+        <attr name="musicplayer_rectDistance" format="dimension" />
+
+        <attr name="musicplayer_isSingleColor" format="boolean" />
+        <attr name="musicplayer_rectColor" format="color" />
+        <attr name="musicplayer_rectColorsArray" format="reference" />
+
+        <attr name="musicplayer_animDuration" format="integer" />
+        <attr name="musicplayer_delayDuration" format="integer" />
+        <attr name="musicplayer_interpolator" format="reference" />
+    </declare-styleable>
+
 </resources>
