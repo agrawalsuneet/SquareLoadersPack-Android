@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.animation.LinearInterpolator
 import android.widget.Button
 import android.widget.LinearLayout
+import com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader
 import com.agrawalsuneet.squareloaderspack.loaders.WaveLoader
 import com.agrawalsuneet.squareloaderspack.loaders.ZipZapLoader
 
@@ -20,14 +21,32 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_2)
+        setContentView(R.layout.activity_main_music_loader)
+
+        supportActionBar?.title = "MusicPlayerLoader"
 
         container = findViewById(R.id.container)
+
+        //initMusicPlayerLoader()
 
         //initWaveLoader()
 
         //initZipZapLoader()
         //initControls();
+    }
+
+    private fun initMusicPlayerLoader() {
+        val loader = MusicPlayerLoader(this, 4, 40,
+                100, 4, ContextCompat.getColor(baseContext, R.color.blue))
+                .apply {
+                    /*isSingleColor = false
+                    rectColorsArray = resources.getIntArray(R.array.waveloader_colorsarray)*/
+                    interpolator = LinearInterpolator()
+                    animDuration = 500
+                    delayDuration = 200
+                }
+
+        container.addView(loader)
     }
 
     private fun initWaveLoader() {
