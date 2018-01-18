@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_music_loader)
+        setContentView(R.layout.activity_main_rotating_square_loader)
 
-        supportActionBar?.title = "MusicPlayerLoader"
+        supportActionBar?.title = "RotatingSquareLoader"
 
         container = findViewById(R.id.container)
 

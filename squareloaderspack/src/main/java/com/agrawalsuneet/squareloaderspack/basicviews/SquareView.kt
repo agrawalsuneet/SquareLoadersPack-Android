@@ -16,11 +16,22 @@ class SquareView : View, LoaderContract {
     private var squareColor: Int = resources.getColor(R.color.grey)
     private lateinit var squarePaint: Paint
 
+    private var isHollowSquare: Boolean = false
+    private var strokeWidth : Int = 50
+
     constructor(context: Context) : super(context) {}
 
     constructor(context: Context, squareColor: Int, length: Int) : super(context) {
         this.squareColor = squareColor
         this.squareLength = length
+        initValues()
+    }
+
+    constructor(context: Context, squareColor: Int, length: Int, isHollow: Boolean, strokeWidth : Int) : super(context) {
+        this.squareColor = squareColor
+        this.squareLength = length
+        this.isHollowSquare = isHollow
+        this.strokeWidth = strokeWidth
         initValues()
     }
 
@@ -46,6 +57,10 @@ class SquareView : View, LoaderContract {
     private fun initValues() {
         squarePaint = Paint()
         squarePaint.color = squareColor
+        if (isHollowSquare) {
+            squarePaint.style = Paint.Style.STROKE
+            squarePaint.strokeWidth = strokeWidth.toFloat()
+        }
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
