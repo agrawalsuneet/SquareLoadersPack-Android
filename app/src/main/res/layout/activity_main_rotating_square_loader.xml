@@ -15,59 +15,49 @@
         android:orientation="horizontal">
 
 
-        <!--<com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:musicplayer_animDuration="500"
-            app:musicplayer_delayDuration="200"
-            app:musicplayer_interpolator="@android:anim/linear_interpolator"
-            app:musicplayer_isSingleColor="true"
-            app:musicplayer_noOfDots="5"
-            app:musicplayer_rectColor="@color/red"
-            app:musicplayer_rectDistance="2dp"
-            app:musicplayer_rectHeight="30dp"
-            app:musicplayer_rectWidth="8dp" />
+        <com.agrawalsuneet.squareloaderspack.loaders.RotatingSquareLoader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:rotatingsquare_animDuration="2000"
+            app:rotatingsquare_sqaureColor="@color/red"
+            app:rotatingsquare_squareSideLength="40dp"
+            app:rotatingsquare_strokeWidth="15dp" />
 
-        <com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="16dp"
-            app:musicplayer_animDuration="500"
-            app:musicplayer_delayDuration="200"
-            app:musicplayer_interpolator="@android:anim/linear_interpolator"
-            app:musicplayer_isSingleColor="true"
-            app:musicplayer_noOfDots="5"
-            app:musicplayer_rectColor="@color/amber"
-            app:musicplayer_rectDistance="2dp"
-            app:musicplayer_rectHeight="30dp"
-            app:musicplayer_rectWidth="8dp" />
+        <com.agrawalsuneet.squareloaderspack.loaders.RotatingSquareLoader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:rotatingsquare_animDuration="2000"
+            app:rotatingsquare_sqaureColor="@color/amber"
+            app:rotatingsquare_squareSideLength="40dp"
+            app:rotatingsquare_strokeWidth="15dp" />
 
-        <com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="16dp"
-            app:musicplayer_animDuration="500"
-            app:musicplayer_delayDuration="200"
-            app:musicplayer_interpolator="@android:anim/linear_interpolator"
-            app:musicplayer_isSingleColor="true"
-            app:musicplayer_noOfDots="5"
-            app:musicplayer_rectColor="@color/green"
-            app:musicplayer_rectDistance="2dp"
-            app:musicplayer_rectHeight="30dp"
-            app:musicplayer_rectWidth="8dp" />-->
+        <com.agrawalsuneet.squareloaderspack.loaders.RotatingSquareLoader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:rotatingsquare_animDuration="2000"
+            app:rotatingsquare_sqaureColor="@color/green"
+            app:rotatingsquare_squareSideLength="40dp"
+            app:rotatingsquare_strokeWidth="15dp" />
 
     </LinearLayout>
-
-    <!--<com.agrawalsuneet.squareloaderspack.basicviews.SquareView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />-->
 
 
     <com.agrawalsuneet.squareloaderspack.loaders.RotatingSquareLoader
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:rotatingsquare_animDuration="3000"
+        app:rotatingsquare_sqaureColor="@color/blue"
         app:rotatingsquare_squareSideLength="90dp"
-        app:rotatingsquare_strokeWidth="30dp"
-        app:rotatingsquare_animDuration="10000"/>
+        app:rotatingsquare_strokeWidth="30dp" />
+
+
+    <com.agrawalsuneet.squareloaderspack.loaders.RotatingSquareLoader
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:rotatingsquare_animDuration="3000"
+        app:rotatingsquare_sqaureColor="@color/grey"
+        app:rotatingsquare_squareSideLength="60dp"
+        app:rotatingsquare_strokeWidth="20dp" />
 
 </LinearLayout>

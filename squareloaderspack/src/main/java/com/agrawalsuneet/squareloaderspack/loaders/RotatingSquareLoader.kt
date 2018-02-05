@@ -41,7 +41,7 @@ class RotatingSquareLoader : LinearLayout, LoaderContract {
         initView()
     }
 
-    constructor(context: Context?, squareSideLenght: Float, strokeWidth: Float, squareColor: Int) : super(context) {
+    constructor(context: Context, squareSideLenght: Float, strokeWidth: Float, squareColor: Int) : super(context) {
         this.squareSideLength = squareSideLenght
         this.strokeWidth = strokeWidth
         this.squareColor = squareColor
@@ -70,7 +70,7 @@ class RotatingSquareLoader : LinearLayout, LoaderContract {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
         //sin45 = 0.707
-        //width = 2 * sin45 * (sideLength + stroke)
+        //width = 2 * sin45 * (sideLength)
         val width = (1.5 * (squareSideLength))
         setMeasuredDimension(width.toInt(), width.toInt())
     }
@@ -99,13 +99,11 @@ class RotatingSquareLoader : LinearLayout, LoaderContract {
     }
 
     private fun startLoading() {
-
         val rotationAnim = getRotateAnimation()
         squareView.startAnimation(rotationAnim)
     }
 
     private fun getRotateAnimation(): RotateAnimation {
-
         val transAnim = RotateAnimation(0f, 360f,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f)
