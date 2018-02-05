@@ -17,7 +17,7 @@ import com.agrawalsuneet.squareloaderspack.basicviews.SquareView
  */
 class RotatingSquareLoader : LinearLayout, LoaderContract {
 
-    var squareSideLenght: Float = 200.0f
+    var squareSideLength: Float = 200.0f
     var strokeWidth: Float = 50.0f
 
     var squareColor: Int = resources.getColor(R.color.green)
@@ -41,40 +41,38 @@ class RotatingSquareLoader : LinearLayout, LoaderContract {
         initView()
     }
 
-    constructor(context: Context, noOfSticks: Int, outerCircleRadius: Float, innerCircleRadius: Float, sticksColor: Int, viewBackgroundColor: Int) : super(context) {
-        /*this.noOfSticks = noOfSticks
-        this.outerCircleRadius = outerCircleRadius
-        this.innerCircleRadius = innerCircleRadius
-        this.sticksColor = sticksColor*/
+    constructor(context: Context?, squareSideLenght: Float, strokeWidth: Float, squareColor: Int) : super(context) {
+        this.squareSideLength = squareSideLenght
+        this.strokeWidth = strokeWidth
+        this.squareColor = squareColor
         initView()
     }
 
     override fun initAttributes(attrs: AttributeSet) {
-        /*val typedArray = context.obtainStyledAttributes(attrs, R.styleable.RotatingCircularSticksLoader, 0, 0)
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.RotatingSquareLoader, 0, 0)
 
-        this.noOfSticks = typedArray
-                .getInteger(R.styleable.RotatingCircularSticksLoader_rotatingsticks_noOfSticks, 50)
-
-        this.outerCircleRadius = typedArray
-                .getDimension(R.styleable.RotatingCircularSticksLoader_rotatingsticks_outerCircleRadius, 200.0f)
-        this.innerCircleRadius = typedArray
-                .getDimension(R.styleable.RotatingCircularSticksLoader_rotatingsticks_innerCircleRadius, 100.0f)
+        this.squareSideLength = typedArray
+                .getDimension(R.styleable.RotatingSquareLoader_rotatingsquare_squareSideLength, 200.0f)
+        this.strokeWidth = typedArray
+                .getDimension(R.styleable.RotatingSquareLoader_rotatingsquare_strokeWidth, 50.0f)
 
 
-        this.sticksColor = typedArray
-                .getColor(R.styleable.RotatingCircularSticksLoader_rotatingsticks_stickColor, resources.getColor(R.color.grey))
-        this.viewBackgroundColor = typedArray
-                .getColor(R.styleable.RotatingCircularSticksLoader_rotatingsticks_viewBackgroundColor, resources.getColor(android.R.color.white))
+        this.squareColor = typedArray
+                .getColor(R.styleable.RotatingSquareLoader_rotatingsquare_sqaureColor, resources.getColor(R.color.green))
 
         this.animDuration = typedArray
-                .getInteger(R.styleable.RotatingCircularSticksLoader_rotatingsticks_animDuration, 5000)
+                .getInteger(R.styleable.RotatingSquareLoader_rotatingsquare_animDuration, 2000)
 
-        typedArray.recycle()*/
+        typedArray.recycle()
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        setMeasuredDimension(2 * squareSideLenght.toInt(), 2 * squareSideLenght.toInt())
+
+        //sin45 = 0.707
+        //width = 2 * sin45 * (sideLength + stroke)
+        val width = (1.5 * (squareSideLength))
+        setMeasuredDimension(width.toInt(), width.toInt())
     }
 
     private fun initView() {
@@ -83,7 +81,7 @@ class RotatingSquareLoader : LinearLayout, LoaderContract {
 
         gravity = Gravity.CENTER
 
-        squareView = SquareView(context, squareColor, squareSideLenght.toInt(), true, strokeWidth.toInt())
+        squareView = SquareView(context, squareSideLength.toInt(), squareColor, true, strokeWidth.toInt())
 
 
         addView(squareView)

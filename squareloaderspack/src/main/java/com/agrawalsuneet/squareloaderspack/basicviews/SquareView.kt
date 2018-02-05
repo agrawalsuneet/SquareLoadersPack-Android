@@ -27,9 +27,9 @@ class SquareView : View, LoaderContract {
         initValues()
     }
 
-    constructor(context: Context, squareColor: Int, length: Int, isHollow: Boolean, strokeWidth : Int) : super(context) {
-        this.squareColor = squareColor
+    constructor(context: Context,length: Int, squareColor: Int, isHollow: Boolean, strokeWidth : Int) : super(context) {
         this.squareLength = length
+        this.squareColor = squareColor
         this.isHollowSquare = isHollow
         this.strokeWidth = strokeWidth
         initValues()
