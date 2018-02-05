@@ -23,7 +23,7 @@ Other loaders: [SVGLoader](https://github.com/agrawalsuneet/SVGLoadersPack-Andro
 ## How To use
 include below dependency in build.gradle of application and compile it
 ```
-compile 'com.agrawalsuneet.androidlibs:squareloaderspack:0.2'
+compile 'com.agrawalsuneet.androidlibs:squareloaderspack:0.3'
 ```
 
 ### ZipZapLoader
