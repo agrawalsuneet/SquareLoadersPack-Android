@@ -56,4 +56,11 @@
         <attr name="musicplayer_interpolator" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="RotatingSquareLoader">
+        <attr name="rotatingsquare_squareSideLength" format="dimension" />
+        <attr name="rotatingsquare_strokeWidth" format="dimension" />
+        <attr name="rotatingsquare_sqaureColor" format="color" />
+        <attr name="rotatingsquare_animDuration" format="integer" />
+    </declare-styleable>
+
 </resources>

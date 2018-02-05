@@ -8,6 +8,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
 
 import com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader;
+import com.agrawalsuneet.squareloaderspack.loaders.RotatingSquareLoader;
 import com.agrawalsuneet.squareloaderspack.loaders.WaveLoader;
 import com.agrawalsuneet.squareloaderspack.loaders.ZipZapLoader;
 
@@ -58,5 +59,12 @@ public class MainActivityJava extends AppCompatActivity {
         loader.setDelayDuration(100);
 
         container.addView(loader);
+
+
+        RotatingSquareLoader rotatingSquareLoader = new RotatingSquareLoader(this,
+                200.0f, 60.0f, ContextCompat.getColor(this, R.color.red));
+        rotatingSquareLoader.setAnimDuration(5000);
+
+        container.addView(rotatingSquareLoader);
     }
 }
