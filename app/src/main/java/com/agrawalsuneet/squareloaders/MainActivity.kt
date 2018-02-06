@@ -7,6 +7,7 @@ import android.view.animation.LinearInterpolator
 import android.widget.Button
 import android.widget.LinearLayout
 import com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader
+import com.agrawalsuneet.squareloaderspack.loaders.RotatingSquareLoader
 import com.agrawalsuneet.squareloaderspack.loaders.WaveLoader
 import com.agrawalsuneet.squareloaderspack.loaders.ZipZapLoader
 
@@ -21,11 +22,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_music_loader)
+        setContentView(R.layout.activity_main_rotating_square_loader)
 
-        supportActionBar?.title = "MusicPlayerLoader"
+        supportActionBar?.title = "RotatingSquareLoader"
 
         container = findViewById(R.id.container)
+
+        //initRotatingSquareLoader()
 
         //initMusicPlayerLoader()
 
@@ -33,6 +36,16 @@ class MainActivity : AppCompatActivity() {
 
         //initZipZapLoader()
         //initControls();
+    }
+
+    private fun initRotatingSquareLoader() {
+        val rotatingSquareLoader = RotatingSquareLoader(this,
+                200.0f, 60.0f, ContextCompat.getColor(this, R.color.red))
+                .apply {
+                    animDuration = 5000
+                }
+
+        container.addView(rotatingSquareLoader)
     }
 
     private fun initMusicPlayerLoader() {
