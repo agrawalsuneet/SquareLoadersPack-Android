@@ -13,12 +13,19 @@
 
 please check a better quality demo [here](https://youtu.be/v0rr80_kAtw)
 
+
 ### MusicPlayerLoader
 ![musicplayerloader](https://user-images.githubusercontent.com/12999622/35103527-00136c14-fc5e-11e7-84a0-9c2bc47236be.gif)
 
 please check a better quality demo [here](https://youtu.be/gPrv5Am_M6M)
 
+
+### RotatingSquareLoader
+![RotatingSquareLoader](https://user-images.githubusercontent.com/12999622/35877618-c2f139c8-0b6d-11e8-8c66-b830c27ac430.gif)
+
+
 Other loaders: [SVGLoader](https://github.com/agrawalsuneet/SVGLoadersPack-Android), [ClockLoader](https://github.com/agrawalsuneet/LoadersPack), [RippleLoader](https://github.com/agrawalsuneet/LoadersPack), [RotatingCircularSticksLoader](https://github.com/agrawalsuneet/LoadersPack), [CircularSticksLoader](https://github.com/agrawalsuneet/LoadersPack),  [LinearDotsLoader](https://github.com/agrawalsuneet/DotsLoader), [CircularDotsLoader](https://github.com/agrawalsuneet/DotsLoader), [LazyLoader](https://github.com/agrawalsuneet/DotsLoader), [TashieLoader](https://github.com/agrawalsuneet/DotsLoader), [SlidingLoader](https://github.com/agrawalsuneet/DotsLoader), [RotatingCircularDotsLoader](https://github.com/agrawalsuneet/DotsLoader), [FourFoldLoader](https://github.com/agrawalsuneet/FourFoldLoader)
+
 
 ## How To use
 include below dependency in build.gradle of application and compile it
@@ -199,6 +206,38 @@ MusicPlayerLoader loader = new MusicPlayerLoader(this, 4, 40,
         container.addView(loader);
 ```
   
+  
+### RotatingSquareLoader
+##### Through XML
+```
+    <com.agrawalsuneet.squareloaderspack.loaders.RotatingSquareLoader
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:rotatingsquare_animDuration="2000"
+        app:rotatingsquare_sqaureColor="@color/amber"
+        app:rotatingsquare_squareSideLength="40dp"
+        app:rotatingsquare_strokeWidth="15dp" />
+```
+##### Through Code
+* Kotlin
+```
+         val rotatingSquareLoader = RotatingSquareLoader(this,
+                 200.0f, 60.0f, ContextCompat.getColor(this, R.color.red))
+                 .apply {
+                     animDuration = 5000
+                 }
+ 
+         container.addView(rotatingSquareLoader)
+```
+
+* Java
+```
+RotatingSquareLoader rotatingSquareLoader = new RotatingSquareLoader(this,
+                200.0f, 60.0f, ContextCompat.getColor(this, R.color.red));
+        rotatingSquareLoader.setAnimDuration(5000);
+
+        container.addView(rotatingSquareLoader);
+```  
   
 
 Please take a 2 mins survey to make this library better [here](https://goo.gl/forms/2Iluao9HV9CAMLx63).
