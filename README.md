@@ -5,19 +5,15 @@
 
 
 ### ZipZapLoader
-![zipzaploader](https://user-images.githubusercontent.com/12999622/32248451-a304a664-be7d-11e7-8c3e-d149c09da599.gif)
+![zipzaploader](https://user-images.githubusercontent.com/12999622/36222631-d8228584-11b9-11e8-8478-d1442891419c.gif)
 
 
 ### WaveLoader
 ![waveloader](https://user-images.githubusercontent.com/12999622/34330606-af613dc8-e916-11e7-9965-a686071002b9.gif)
 
-please check a better quality demo [here](https://youtu.be/v0rr80_kAtw)
-
 
 ### MusicPlayerLoader
 ![musicplayerloader](https://user-images.githubusercontent.com/12999622/35103527-00136c14-fc5e-11e7-84a0-9c2bc47236be.gif)
-
-please check a better quality demo [here](https://youtu.be/gPrv5Am_M6M)
 
 
 ### RotatingSquareLoader
