@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 
 import com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader;
 import com.agrawalsuneet.squareloaderspack.loaders.RotatingSquareLoader;
+import com.agrawalsuneet.squareloaderspack.loaders.SquareGridLoader;
 import com.agrawalsuneet.squareloaderspack.loaders.WaveLoader;
 import com.agrawalsuneet.squareloaderspack.loaders.ZipZapLoader;
 
@@ -24,7 +25,7 @@ public class MainActivityJava extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_zipzap);
 
         ZipZapLoader zipZapLoader = new ZipZapLoader(this, 40,
                 ContextCompat.getColor(this, R.color.red),
@@ -66,5 +67,18 @@ public class MainActivityJava extends AppCompatActivity {
         rotatingSquareLoader.setAnimDuration(5000);
 
         container.addView(rotatingSquareLoader);
+
+        SquareGridLoader squareGridLoader = new SquareGridLoader(
+                this,
+                3,
+                100,
+                ContextCompat.getColor(this, R.color.red));
+
+        squareGridLoader.setAnimDuration(500);
+        squareGridLoader.setAnimDelay(100);
+        squareGridLoader.setInterpolator(new LinearInterpolator());
+
+
+        container.addView(squareGridLoader);
     }
 }
