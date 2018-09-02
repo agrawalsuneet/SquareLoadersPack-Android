@@ -15,13 +15,13 @@ import com.agrawalsuneet.squareloaderspack.basicviews.SquareView
 
 class SquareGridLoader : LinearLayout, LoaderContract {
 
-    var squareCount: Int = 5
+    var squareCount: Int = 4
         set(value) {
             field = if (value < 2) 2 else value
         }
 
     var squareLength: Int = 100
-    var squareColor: Int = resources.getColor(R.color.green)
+    var squareColor: Int = resources.getColor(R.color.grey)
 
     var animDuration: Int = 500
     var animDelay: Int = 100
@@ -56,7 +56,7 @@ class SquareGridLoader : LinearLayout, LoaderContract {
     override fun initAttributes(attrs: AttributeSet) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.SquareGridLoader, 0, 0)
 
-        this.squareColor = typedArray.getInteger(R.styleable.SquareGridLoader_squaregrid_squareCount, 3)
+        this.squareCount = typedArray.getInteger(R.styleable.SquareGridLoader_squaregrid_squareCount, 3)
 
         this.squareLength = typedArray.getDimensionPixelSize(R.styleable.SquareGridLoader_squaregrid_squareLength, 200)
 
@@ -70,7 +70,7 @@ class SquareGridLoader : LinearLayout, LoaderContract {
         this.animDelay = typedArray
                 .getInteger(R.styleable.SquareGridLoader_squaregrid_animDelay, 100)
 
-        interpolator = AnimationUtils.loadInterpolator(context,
+        this.interpolator = AnimationUtils.loadInterpolator(context,
                 typedArray.getResourceId(R.styleable.SquareGridLoader_squaregrid_interpolator,
                         android.R.anim.linear_interpolator))
 

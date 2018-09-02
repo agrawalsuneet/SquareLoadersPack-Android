@@ -7,18 +7,72 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <!--<LinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:gravity="center"
-        android:orientation="horizontal"></LinearLayout>-->
+        android:orientation="horizontal">
+
+        <com.agrawalsuneet.squareloaderspack.loaders.SquareGridLoader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:squaregrid_animDelay="100"
+            app:squaregrid_animDuration="500"
+            app:squaregrid_interpolator="@android:interpolator/linear"
+            app:squaregrid_sqaureColor="@color/red"
+            app:squaregrid_squareCount="4"
+            app:squaregrid_squareLength="16dp" />
+
+
+        <com.agrawalsuneet.squareloaderspack.loaders.SquareGridLoader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:squaregrid_animDelay="100"
+            app:squaregrid_animDuration="500"
+            app:squaregrid_interpolator="@android:interpolator/linear"
+            app:squaregrid_sqaureColor="@color/amber"
+            app:squaregrid_squareCount="4"
+            app:squaregrid_squareLength="16dp" />
+
+        <com.agrawalsuneet.squareloaderspack.loaders.SquareGridLoader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:squaregrid_animDelay="100"
+            app:squaregrid_animDuration="500"
+            app:squaregrid_interpolator="@android:interpolator/linear"
+            app:squaregrid_sqaureColor="@color/green"
+            app:squaregrid_squareCount="4"
+            app:squaregrid_squareLength="16dp" />
+
+    </LinearLayout>
 
 
     <com.agrawalsuneet.squareloaderspack.loaders.SquareGridLoader
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:squaregrid_squareLength="20dp"/>
+        android:layout_margin="16dp"
+        app:squaregrid_animDelay="80"
+        app:squaregrid_animDuration="400"
+        app:squaregrid_interpolator="@android:interpolator/linear"
+        app:squaregrid_sqaureColor="@color/blue"
+        app:squaregrid_squareCount="5"
+        app:squaregrid_squareLength="24dp" />
+
+
+    <com.agrawalsuneet.squareloaderspack.loaders.SquareGridLoader
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:squaregrid_animDelay="100"
+        app:squaregrid_animDuration="500"
+        app:squaregrid_interpolator="@android:interpolator/linear"
+        app:squaregrid_sqaureColor="@color/grey"
+        app:squaregrid_squareCount="3"
+        app:squaregrid_squareLength="24dp" />
 
 
 </LinearLayout>
