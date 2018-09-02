@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         //initZipZapLoader()
         //initControls();
 
-        initSquareGridLoader()
+        //initSquareGridLoader()
     }
 
     private fun initSquareGridLoader(){
