@@ -1,11 +1,13 @@
 # SquareLoadersPack-Android
-> Android SquareLoadersPack            [![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=5a4e8d2fc4d3e1000114ff6d&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/5a4e8d2fc4d3e1000114ff6d/build/latest?branch=master)
+> Android SquareLoadersPack
 
 > A replacement of default android material progressbar with various Squares and Rectangles Loaders
 
+latest version : [ ![Download](https://api.bintray.com/packages/agrawalsuneet/androidlibs/squareloaderspack/images/download.svg) ](https://bintray.com/agrawalsuneet/androidlibs/squareloaderspack/_latestVersion)
+
 
 ### SquareGridLoader
-![zipzaploader](https://user-images.githubusercontent.com/12999622/36222631-d8228584-11b9-11e8-8478-d1442891419c.gif)
+![squaregridloader](https://user-images.githubusercontent.com/12999622/44960467-15765880-aef8-11e8-80fb-5a834ca5c628.gif)
 
 
 ### ZipZapLoader
