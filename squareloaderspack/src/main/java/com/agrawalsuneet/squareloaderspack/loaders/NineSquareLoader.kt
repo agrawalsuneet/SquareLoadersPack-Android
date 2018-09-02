@@ -10,6 +10,7 @@ import android.view.animation.RotateAnimation
 import android.widget.LinearLayout
 import com.agrawalsuneet.squareloaderspack.R
 import com.agrawalsuneet.squareloaderspack.basicviews.LoaderContract
+import com.agrawalsuneet.squareloaderspack.basicviews.SquareView
 
 /**
  * Created by agrawalsuneet on 9/2/18.
@@ -22,6 +23,8 @@ class NineSquareLoader : LinearLayout, LoaderContract {
     var squareColor: Int = resources.getColor(R.color.green)
 
     var animDuration: Int = 2000
+
+    private var squaresList: ArrayList<ArrayList<SquareView>> = ArrayList(3)
 
 
     constructor(context: Context) : super(context) {
@@ -68,6 +71,26 @@ class NineSquareLoader : LinearLayout, LoaderContract {
         removeAllViewsInLayout()
 
         gravity = Gravity.CENTER
+
+        val params = LinearLayout.LayoutParams(3 * squareSideLength, squareSideLength)
+
+        for (i in 0..2) {
+            val linearLayout = LinearLayout(context)
+
+            linearLayout.layoutParams = params
+            linearLayout.orientation = LinearLayout.HORIZONTAL
+
+            val squares = ArrayList<SquareView>(3)
+            for (j in 0..2) {
+                val squareView = SquareView(context, squareColor, squareSideLength)
+                linearLayout.addView(linearLayout)
+                squares.add(squareView)
+            }
+
+            squaresList.add(squares)
+
+            this.addView(linearLayout)
+        }
 
 
         val loaderView = this
