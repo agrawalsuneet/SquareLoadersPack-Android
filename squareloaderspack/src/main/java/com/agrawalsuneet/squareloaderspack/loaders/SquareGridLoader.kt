@@ -3,10 +3,7 @@ package com.agrawalsuneet.squareloaderspack.loaders
 import android.content.Context
 import android.util.AttributeSet
 import android.view.ViewTreeObserver
-import android.view.animation.Animation
-import android.view.animation.Interpolator
-import android.view.animation.LinearInterpolator
-import android.view.animation.ScaleAnimation
+import android.view.animation.*
 import android.widget.LinearLayout
 import com.agrawalsuneet.squareloaderspack.R
 import com.agrawalsuneet.squareloaderspack.basicviews.LoaderContract
@@ -16,9 +13,14 @@ import com.agrawalsuneet.squareloaderspack.basicviews.SquareView
  * Created by agrawalsuneet on 9/2/18.
  */
 
-class NineSquareLoader : LinearLayout, LoaderContract {
+class SquareGridLoader : LinearLayout, LoaderContract {
 
-    var squareSideLength: Int = 200
+    var squareCount: Int = 5
+        set(value) {
+            field = if (value < 2) 2 else value
+        }
+
+    var squareLength: Int = 100
     var squareColor: Int = resources.getColor(R.color.green)
 
     var animDuration: Int = 500
@@ -30,6 +32,12 @@ class NineSquareLoader : LinearLayout, LoaderContract {
 
     private var squaresList: ArrayList<ArrayList<SquareView>> = ArrayList()
 
+    constructor(context: Context?, squareCount: Int, squareLength: Int, squareColor: Int) : super(context) {
+        this.squareCount = squareCount
+        this.squareLength = squareLength
+        this.squareColor = squareColor
+        initView()
+    }
 
     constructor(context: Context) : super(context) {
         initView()
@@ -46,27 +54,33 @@ class NineSquareLoader : LinearLayout, LoaderContract {
     }
 
     override fun initAttributes(attrs: AttributeSet) {
-        /*val typedArray = context.obtainStyledAttributes(attrs, R.styleable.RotatingSquareLoader, 0, 0)
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.SquareGridLoader, 0, 0)
 
-        this.squareSideLength = typedArray
-                .getDimension(R.styleable.RotatingSquareLoader_rotatingsquare_squareSideLength, 200.0f)
-        this.strokeWidth = typedArray
-                .getDimension(R.styleable.RotatingSquareLoader_rotatingsquare_strokeWidth, 50.0f)
+        this.squareColor = typedArray.getInteger(R.styleable.SquareGridLoader_squaregrid_squareCount, 3)
+
+        this.squareLength = typedArray.getDimensionPixelSize(R.styleable.SquareGridLoader_squaregrid_squareLength, 200)
 
 
         this.squareColor = typedArray
-                .getColor(R.styleable.RotatingSquareLoader_rotatingsquare_sqaureColor, resources.getColor(R.color.green))
+                .getColor(R.styleable.SquareGridLoader_squaregrid_sqaureColor, resources.getColor(R.color.grey))
 
         this.animDuration = typedArray
-                .getInteger(R.styleable.RotatingSquareLoader_rotatingsquare_animDuration, 2000)
+                .getInteger(R.styleable.SquareGridLoader_squaregrid_animDuration, 500)
 
-        typedArray.recycle()*/
+        this.animDelay = typedArray
+                .getInteger(R.styleable.SquareGridLoader_squaregrid_animDelay, 100)
+
+        interpolator = AnimationUtils.loadInterpolator(context,
+                typedArray.getResourceId(R.styleable.SquareGridLoader_squaregrid_interpolator,
+                        android.R.anim.linear_interpolator))
+
+        typedArray.recycle()
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
-        val calWidthHeight = (3 * squareSideLength)
+        val calWidthHeight = (squareCount * squareLength)
         setMeasuredDimension(calWidthHeight, calWidthHeight)
     }
 
@@ -76,18 +90,18 @@ class NineSquareLoader : LinearLayout, LoaderContract {
 
         this.orientation = LinearLayout.VERTICAL
 
-        val params = LinearLayout.LayoutParams(3 * squareSideLength, squareSideLength)
+        val params = LinearLayout.LayoutParams((squareCount * squareLength), squareLength)
 
-        for (j in 0..2) {
+        for (j in 0 until squareCount) {
             val linearLayout = LinearLayout(context)
 
             linearLayout.layoutParams = params
             linearLayout.orientation = LinearLayout.HORIZONTAL
 
-            var squares = ArrayList<SquareView>()
+            val squares = ArrayList<SquareView>()
 
-            for (i in 0..2) {
-                val squareView = SquareView(context, squareColor, squareSideLength)
+            for (i in 0 until squareCount) {
+                val squareView = SquareView(context, squareColor, squareLength)
                 linearLayout.addView(squareView)
 
                 squares.add(squareView)
@@ -112,9 +126,10 @@ class NineSquareLoader : LinearLayout, LoaderContract {
 
     private fun startLoading() {
         for (i in squaresList.size - 1 downTo 0) {
+
             for (j in 0 until squaresList.size) {
 
-                val scaleAnim = getScaleAnimation(2 - i + j)
+                val scaleAnim = getScaleAnimation((squareCount - 1) - i + j)
 
                 if (i == 0 && j == squaresList.size - 1) {
                     scaleAnim.setAnimationListener(object : Animation.AnimationListener {
@@ -145,7 +160,7 @@ class NineSquareLoader : LinearLayout, LoaderContract {
 
         val scaleAnim = ScaleAnimation(fromX, toX,
                 fromX, toX,
-                (squareSideLength / 2).toFloat(), (squareSideLength / 2).toFloat())
+                (squareLength / 2).toFloat(), (squareLength / 2).toFloat())
         scaleAnim.duration = animDuration.toLong()
         scaleAnim.fillAfter = true
         scaleAnim.repeatCount = 0

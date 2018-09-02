@@ -63,4 +63,13 @@
         <attr name="rotatingsquare_animDuration" format="integer" />
     </declare-styleable>
 
+    <declare-styleable name="SquareGridLoader">
+        <attr name="squaregrid_squareCount" format="integer"/>
+        <attr name="squaregrid_squareLength" format="dimension" />
+        <attr name="squaregrid_sqaureColor" format="color" />
+        <attr name="squaregrid_animDuration" format="integer" />
+        <attr name="squaregrid_animDelay" format="integer" />
+        <attr name="squaregrid_interpolator" format="reference" />
+    </declare-styleable>
+
 </resources>

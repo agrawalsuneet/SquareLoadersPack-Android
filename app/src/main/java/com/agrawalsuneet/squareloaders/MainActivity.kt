@@ -23,9 +23,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main_ninesquare)
+        setContentView(R.layout.activity_main_squaregrid)
 
-        supportActionBar?.title = "NineSquareLoader"
+        supportActionBar?.title = "SquareGridLoader"
 
         container = findViewById(R.id.container)
 
