@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <com.agrawalsuneet.squareloaderspack.loaders.ZipZapLoader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:zipzap_animDuration="100"
+            app:zipzap_firstSquareColor="@color/red"
+            app:zipzap_forthSquareColor="@color/red"
+            app:zipzap_fromScale="0.9"
+            app:zipzap_secondSquareColor="@color/red"
+            app:zipzap_squareLength="30dp"
+            app:zipzap_startLoadingDefault="true"
+            app:zipzap_thirdSquareColor="@color/red"
+            app:zipzap_toScale="0.8" />
+
+        <com.agrawalsuneet.squareloaderspack.loaders.ZipZapLoader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:zipzap_animDuration="100"
+            app:zipzap_firstSquareColor="@color/amber"
+            app:zipzap_forthSquareColor="@color/amber"
+            app:zipzap_fromScale="0.9"
+            app:zipzap_secondSquareColor="@color/amber"
+            app:zipzap_squareLength="30dp"
+            app:zipzap_startLoadingDefault="true"
+            app:zipzap_thirdSquareColor="@color/amber"
+            app:zipzap_toScale="0.8" />
+
+        <com.agrawalsuneet.squareloaderspack.loaders.ZipZapLoader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:zipzap_animDuration="100"
+            app:zipzap_firstSquareColor="@color/green"
+            app:zipzap_forthSquareColor="@color/green"
+            app:zipzap_fromScale="0.9"
+            app:zipzap_secondSquareColor="@color/green"
+            app:zipzap_squareLength="30dp"
+            app:zipzap_startLoadingDefault="true"
+            app:zipzap_thirdSquareColor="@color/green"
+            app:zipzap_toScale="0.8" />
+
+
+    </LinearLayout>
+
+    <com.agrawalsuneet.squareloaderspack.loaders.ZipZapLoader
+        android:id="@+id/zipzap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:zipzap_animDuration="150"
+        app:zipzap_firstSquareColor="@color/blue"
+        app:zipzap_forthSquareColor="@color/blue"
+        app:zipzap_fromScale="0.95"
+        app:zipzap_secondSquareColor="@color/blue"
+        app:zipzap_squareLength="80dp"
+        app:zipzap_startLoadingDefault="true"
+        app:zipzap_thirdSquareColor="@color/blue"
+        app:zipzap_toScale="0.8" />
+
+    <com.agrawalsuneet.squareloaderspack.loaders.ZipZapLoader
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:zipzap_animDuration="100"
+        app:zipzap_firstSquareColor="@color/grey"
+        app:zipzap_forthSquareColor="@color/grey"
+        app:zipzap_fromScale="1"
+        app:zipzap_secondSquareColor="@color/grey"
+        app:zipzap_squareLength="60dp"
+        app:zipzap_startLoadingDefault="true"
+        app:zipzap_thirdSquareColor="@color/grey"
+        app:zipzap_toScale="0.85" />
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Animate"
+        android:visibility="gone" />
+
+
+</LinearLayout>

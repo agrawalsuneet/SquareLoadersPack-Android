@@ -3,13 +3,11 @@ package com.agrawalsuneet.squareloaders
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.view.animation.BounceInterpolator
 import android.view.animation.LinearInterpolator
 import android.widget.Button
 import android.widget.LinearLayout
-import com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader
-import com.agrawalsuneet.squareloaderspack.loaders.RotatingSquareLoader
-import com.agrawalsuneet.squareloaderspack.loaders.WaveLoader
-import com.agrawalsuneet.squareloaderspack.loaders.ZipZapLoader
+import com.agrawalsuneet.squareloaderspack.loaders.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,9 +20,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_rotating_square_loader)
 
-        supportActionBar?.title = "RotatingSquareLoader"
+        setContentView(R.layout.activity_main_squaregrid)
+
+        supportActionBar?.title = "SquareGridLoader"
 
         container = findViewById(R.id.container)
 
@@ -36,6 +35,23 @@ class MainActivity : AppCompatActivity() {
 
         //initZipZapLoader()
         //initControls();
+
+        //initSquareGridLoader()
+    }
+
+    private fun initSquareGridLoader(){
+        val squareGridLoader = SquareGridLoader(
+                this,
+                3,
+                100,
+                ContextCompat.getColor(this, R.color.red))
+                .apply {
+                    animDuration = 500
+                    animDelay = 100
+                    interpolator = LinearInterpolator()
+                }
+
+        container.addView(squareGridLoader)
     }
 
     private fun initRotatingSquareLoader() {
