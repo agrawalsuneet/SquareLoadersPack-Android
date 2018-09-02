@@ -22,9 +22,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        supportActionBar?.title = "RotatingSquareLoader"
+        setContentView(R.layout.activity_main_ninesquare)
+
+        supportActionBar?.title = "NineSquareLoader"
 
         container = findViewById(R.id.container)
 

@@ -24,7 +24,7 @@ public class MainActivityJava extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_zipzap);
 
         ZipZapLoader zipZapLoader = new ZipZapLoader(this, 40,
                 ContextCompat.getColor(this, R.color.red),

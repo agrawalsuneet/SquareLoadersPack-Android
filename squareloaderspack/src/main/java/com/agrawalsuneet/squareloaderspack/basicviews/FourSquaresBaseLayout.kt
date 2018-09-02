@@ -41,7 +41,7 @@ abstract class FourSquaresBaseLayout : LinearLayout {
     protected lateinit var bottomLinearLayout: LinearLayout
 
 
-    constructor(context: Context) : super(context) {}
+    constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 
