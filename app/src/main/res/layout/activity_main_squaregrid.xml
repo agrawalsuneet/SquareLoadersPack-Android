@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -72,7 +72,7 @@
         app:squaregrid_interpolator="@android:interpolator/linear"
         app:squaregrid_sqaureColor="@color/grey"
         app:squaregrid_squareCount="3"
-        app:squaregrid_squareLength="24dp" />
+        app:squaregrid_squareLength="24dp" />-->
 
 
 </LinearLayout>

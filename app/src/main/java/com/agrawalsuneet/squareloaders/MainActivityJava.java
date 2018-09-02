@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 
 import com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader;
 import com.agrawalsuneet.squareloaderspack.loaders.RotatingSquareLoader;
+import com.agrawalsuneet.squareloaderspack.loaders.SquareGridLoader;
 import com.agrawalsuneet.squareloaderspack.loaders.WaveLoader;
 import com.agrawalsuneet.squareloaderspack.loaders.ZipZapLoader;
 
@@ -67,7 +68,17 @@ public class MainActivityJava extends AppCompatActivity {
 
         container.addView(rotatingSquareLoader);
 
-        boolean isVisible = false;
-        float fromX = isVisible ? 1.0f: 0.0f;
+        SquareGridLoader squareGridLoader = new SquareGridLoader(
+                this,
+                3,
+                100,
+                ContextCompat.getColor(this, R.color.red));
+
+        squareGridLoader.setAnimDuration(500);
+        squareGridLoader.setAnimDelay(100);
+        squareGridLoader.setInterpolator(new LinearInterpolator());
+
+
+        container.addView(squareGridLoader);
     }
 }

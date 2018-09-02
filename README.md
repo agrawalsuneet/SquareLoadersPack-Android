@@ -4,6 +4,10 @@
 > A replacement of default android material progressbar with various Squares and Rectangles Loaders
 
 
+### SquareGridLoader
+![zipzaploader](https://user-images.githubusercontent.com/12999622/36222631-d8228584-11b9-11e8-8478-d1442891419c.gif)
+
+
 ### ZipZapLoader
 ![zipzaploader](https://user-images.githubusercontent.com/12999622/36222631-d8228584-11b9-11e8-8478-d1442891419c.gif)
 
@@ -25,8 +29,55 @@ Check all other loaders [here](https://agrawalsuneet.github.io/agrawalsuneet/ope
 ## How To use
 include below dependency in build.gradle of application and compile it
 ```
-implementation 'com.agrawalsuneet.androidlibs:squareloaderspack:0.3'
+implementation 'com.agrawalsuneet.androidlibs:squareloaderspack:0.4'
 ```
+
+### SquareGridLoader
+##### Through XML
+```
+<com.agrawalsuneet.squareloaderspack.loaders.SquareGridLoader
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:squaregrid_animDelay="80"
+        app:squaregrid_animDuration="400"
+        app:squaregrid_interpolator="@android:interpolator/linear"
+        app:squaregrid_sqaureColor="@color/blue"
+        app:squaregrid_squareCount="5"
+        app:squaregrid_squareLength="24dp" />
+```
+##### Through Code
+* Kotlin
+```
+        val squareGridLoader = SquareGridLoader(
+                        this,
+                        3,
+                        100,
+                        ContextCompat.getColor(this, R.color.red))
+                        .apply {
+                            animDuration = 500
+                            animDelay = 100
+                            interpolator = LinearInterpolator()
+                        }
+        
+                container.addView(squareGridLoader)
+```
+
+* Java
+```
+SquareGridLoader squareGridLoader = new SquareGridLoader(
+                this,
+                3,
+                100,
+                ContextCompat.getColor(this, R.color.red));
+
+        squareGridLoader.setAnimDuration(500);
+        squareGridLoader.setAnimDelay(100);
+        squareGridLoader.setInterpolator(new LinearInterpolator());
+
+
+        container.addView(squareGridLoader);
+```
+
 
 ### ZipZapLoader
 ##### Through XML

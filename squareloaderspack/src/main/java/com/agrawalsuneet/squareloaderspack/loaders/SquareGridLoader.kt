@@ -32,7 +32,7 @@ class SquareGridLoader : LinearLayout, LoaderContract {
 
     private var squaresList: ArrayList<ArrayList<SquareView>> = ArrayList()
 
-    constructor(context: Context?, squareCount: Int, squareLength: Int, squareColor: Int) : super(context) {
+    constructor(context: Context, squareCount: Int, squareLength: Int, squareColor: Int) : super(context) {
         this.squareCount = squareCount
         this.squareLength = squareLength
         this.squareColor = squareColor
