@@ -66,5 +66,8 @@ public class MainActivityJava extends AppCompatActivity {
         rotatingSquareLoader.setAnimDuration(5000);
 
         container.addView(rotatingSquareLoader);
+
+        boolean isVisible = false;
+        float fromX = isVisible ? 1.0f: 0.0f;
     }
 }

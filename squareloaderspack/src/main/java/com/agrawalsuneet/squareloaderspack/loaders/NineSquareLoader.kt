@@ -2,11 +2,11 @@ package com.agrawalsuneet.squareloaderspack.loaders
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.Gravity
 import android.view.ViewTreeObserver
 import android.view.animation.Animation
+import android.view.animation.Interpolator
 import android.view.animation.LinearInterpolator
-import android.view.animation.RotateAnimation
+import android.view.animation.ScaleAnimation
 import android.widget.LinearLayout
 import com.agrawalsuneet.squareloaderspack.R
 import com.agrawalsuneet.squareloaderspack.basicviews.LoaderContract
@@ -18,13 +18,17 @@ import com.agrawalsuneet.squareloaderspack.basicviews.SquareView
 
 class NineSquareLoader : LinearLayout, LoaderContract {
 
-    var squareSideLength: Int = 100
-
+    var squareSideLength: Int = 200
     var squareColor: Int = resources.getColor(R.color.green)
 
-    var animDuration: Int = 2000
+    var animDuration: Int = 500
+    var animDelay: Int = 100
 
-    private var squaresList: ArrayList<ArrayList<SquareView>> = ArrayList(3)
+    var interpolator: Interpolator = LinearInterpolator()
+
+    private var isForward = true
+
+    private var squaresList: ArrayList<ArrayList<SquareView>> = ArrayList()
 
 
     constructor(context: Context) : super(context) {
@@ -70,26 +74,27 @@ class NineSquareLoader : LinearLayout, LoaderContract {
         removeAllViews()
         removeAllViewsInLayout()
 
-        gravity = Gravity.CENTER
+        this.orientation = LinearLayout.VERTICAL
 
         val params = LinearLayout.LayoutParams(3 * squareSideLength, squareSideLength)
 
-        for (i in 0..2) {
+        for (j in 0..2) {
             val linearLayout = LinearLayout(context)
 
             linearLayout.layoutParams = params
             linearLayout.orientation = LinearLayout.HORIZONTAL
 
-            val squares = ArrayList<SquareView>(3)
-            for (j in 0..2) {
+            var squares = ArrayList<SquareView>()
+
+            for (i in 0..2) {
                 val squareView = SquareView(context, squareColor, squareSideLength)
-                linearLayout.addView(linearLayout)
+                linearLayout.addView(squareView)
+
                 squares.add(squareView)
             }
 
-            squaresList.add(squares)
-
             this.addView(linearLayout)
+            squaresList.add(squares)
         }
 
 
@@ -106,19 +111,47 @@ class NineSquareLoader : LinearLayout, LoaderContract {
     }
 
     private fun startLoading() {
+        for (i in squaresList.size - 1 downTo 0) {
+            for (j in 0 until squaresList.size) {
 
+                val scaleAnim = getScaleAnimation(2 - i + j)
+
+                if (i == 0 && j == squaresList.size - 1) {
+                    scaleAnim.setAnimationListener(object : Animation.AnimationListener {
+
+                        override fun onAnimationEnd(animation: Animation?) {
+                            isForward = !isForward
+                            startLoading()
+                        }
+
+                        override fun onAnimationStart(animation: Animation?) {
+                        }
+
+                        override fun onAnimationRepeat(animation: Animation?) {
+                        }
+
+                    })
+                }
+
+                squaresList.get(i).get(j).startAnimation(scaleAnim)
+            }
+        }
     }
 
-    private fun getRotateAnimation(): RotateAnimation {
-        val transAnim = RotateAnimation(0f, 360f,
-                Animation.RELATIVE_TO_SELF, 0.5f,
-                Animation.RELATIVE_TO_SELF, 0.5f)
-        transAnim.duration = animDuration.toLong()
-        transAnim.fillAfter = true
-        transAnim.repeatCount = Animation.INFINITE
-        transAnim.repeatMode = Animation.RESTART
-        transAnim.interpolator = LinearInterpolator()
+    private fun getScaleAnimation(count: Int): ScaleAnimation {
 
-        return transAnim
+        val fromX = if (isForward) 1.0f else 0.0f
+        val toX = if (isForward) 0.0f else 1.0f
+
+        val scaleAnim = ScaleAnimation(fromX, toX,
+                fromX, toX,
+                (squareSideLength / 2).toFloat(), (squareSideLength / 2).toFloat())
+        scaleAnim.duration = animDuration.toLong()
+        scaleAnim.fillAfter = true
+        scaleAnim.repeatCount = 0
+        scaleAnim.interpolator = interpolator
+        scaleAnim.startOffset = (animDelay * count).toLong()
+
+        return scaleAnim
     }
 }
