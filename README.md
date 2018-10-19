@@ -5,6 +5,8 @@
 
 latest version : [ ![Download](https://api.bintray.com/packages/agrawalsuneet/androidlibs/squareloaderspack/images/download.svg) ](https://bintray.com/agrawalsuneet/androidlibs/squareloaderspack/_latestVersion)
 
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-SquareLoadersPack-green.svg?style=flat )]( https://android-arsenal.com/details/1/7246 )
+
 
 ### SquareGridLoader
 ![squaregridloader](https://user-images.githubusercontent.com/12999622/44960467-15765880-aef8-11e8-80fb-5a834ca5c628.gif)
