@@ -60,3 +60,7 @@ freeline_project_description.json
 
 */.DS_STORE
 ./idea
+.idea/misc.xml
+.idea/modules.xml
+.idea/runConfigurations.xml
+.idea/vcs.xml
