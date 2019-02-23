@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main_squaregrid)
+        setContentView(R.layout.activity_usainbolt)
 
         supportActionBar?.title = "SquareGridLoader"
 

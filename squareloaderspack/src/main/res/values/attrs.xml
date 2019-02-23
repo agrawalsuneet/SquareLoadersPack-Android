@@ -12,6 +12,16 @@
         <attr name="rectColor" format="color" />
     </declare-styleable>
 
+    <declare-styleable name="LShapeView">
+        <attr name="baseRectWidth" format="dimension" />
+        <attr name="baseRectHeight" format="dimension" />
+
+        <attr name="verticalRectWidth" format="dimension" />
+        <attr name="verticalRectHeight" format="dimension" />
+
+        <attr name="lShapeColor" format="color" />
+    </declare-styleable>
+
     <declare-styleable name="ZipZapLoader">
         <attr name="zipzap_squareLength" format="dimension" />
 
