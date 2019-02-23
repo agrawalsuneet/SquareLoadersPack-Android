@@ -3,7 +3,7 @@
 
 > A replacement of default android material progressbar with various Squares and Rectangles Loaders
 
-latest version : [ ![Download](https://api.bintray.com/packages/agrawalsuneet/androidlibs/squareloaderspack/images/download.svg) ](https://bintray.com/agrawalsuneet/androidlibs/squareloaderspack/_latestVersion)
+latest version : [ ![Download](https://api.bintray.com/packages/agrawalsuneet/androidlibs/squareloaderspack/images/download.svg) ](https://bintray.com/agrawalsuneet/androidlibs/squareloaderspack/_latestVersion)    [![CircleCI](https://circleci.com/gh/agrawalsuneet/SquareLoadersPack-Android.svg?style=svg)](https://circleci.com/gh/agrawalsuneet/SquareLoadersPack-Android)
 
 [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-SquareLoadersPack-green.svg?style=flat )]( https://android-arsenal.com/details/1/7246 )
 
