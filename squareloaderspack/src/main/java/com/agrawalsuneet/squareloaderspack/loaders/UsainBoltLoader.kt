@@ -3,8 +3,6 @@ package com.agrawalsuneet.squareloaderspack.loaders
 import android.content.Context
 import android.util.AttributeSet
 import android.view.Gravity
-import android.view.ViewGroup
-import android.view.ViewTreeObserver
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import com.agrawalsuneet.squareloaderspack.R
@@ -17,13 +15,19 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
     var rectangleColor = resources.getColor(android.R.color.darker_gray)
     var rectangleWidth: Int = 50
 
-    private var calWidthHeight: Int = 0
+    private var calWidth: Int = 0
+    private var calHeight: Int = 0
 
     private var relativeLayout: RelativeLayout? = null
 
 
-    var leftLegRectangleView: RectangleView? = null
-    var rightLegLShapeView: LShapeView? = null
+    private var leftLegRectangleView: RectangleView? = null
+    private var rightLegLShapeView: LShapeView? = null
+    private var leftArmLShapeView: LShapeView? = null
+    private var rightArmLShapeView: LShapeView? = null
+
+    private var leftArmContainerLL: LinearLayout? = null
+
 
     constructor(context: Context) : super(context) {
         initView()
@@ -60,11 +64,12 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
-        if (calWidthHeight == 0) {
-            calWidthHeight = 10 * rectangleWidth
+        if (calWidth == 0 || calHeight == 0) {
+            calWidth = 10 * rectangleWidth
+            calHeight = 10 * rectangleWidth
         }
 
-        setMeasuredDimension(calWidthHeight, calWidthHeight)
+        setMeasuredDimension(calWidth, calHeight)
     }
 
     private fun initView() {
@@ -75,11 +80,12 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
 
         relativeLayout = RelativeLayout(context)
 
-        if (calWidthHeight == 0) {
-            calWidthHeight = 10 * rectangleWidth
+        if (calWidth == 0 || calHeight == 0) {
+            calWidth = 10 * rectangleWidth
+            calHeight = 10 * rectangleWidth
         }
 
-        val relParam = RelativeLayout.LayoutParams(calWidthHeight, calWidthHeight)
+        val relParam = RelativeLayout.LayoutParams(calWidth, calHeight)
 
         addView(relativeLayout, relParam)
 
@@ -104,11 +110,11 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
 
 
         //right leg
-        rightLegLShapeView = LShapeView(context,
+        rightLegLShapeView = LShapeView(context = context,
                 baseRectWidth = (3.5 * rectangleWidth).toInt(),
                 baseRectHeight = rectangleWidth,
                 verticalRectWidth = rectangleWidth,
-                verticalRectHeight = (3.5 * rectangleWidth).toInt() ,
+                verticalRectHeight = (3.5 * rectangleWidth).toInt(),
                 color = rectangleColor)
 
         val rightLegParam = RelativeLayout.LayoutParams(
@@ -121,6 +127,31 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
         rightLegLShapeView?.rotation = -135f
 
         relativeLayout?.addView(rightLegLShapeView, rightLegParam)
+
+        //left arm
+        leftArmLShapeView = LShapeView(context = context,
+                baseRectWidth = (3.5 * rectangleWidth).toInt(),
+                baseRectHeight = rectangleWidth,
+                verticalRectWidth = rectangleWidth,
+                verticalRectHeight = 2 * rectangleWidth,
+                color = rectangleColor)
+
+        leftArmLShapeView?.rotation = 135f
+
+        //left arm container
+        leftArmContainerLL = LinearLayout(context)
+        leftArmContainerLL?.clipChildren = false
+        leftArmContainerLL?.clipToPadding = false
+        leftArmContainerLL?.setPadding(0, rectangleWidth, rectangleWidth, 0)
+
+        val leftArmContainerParam = RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
+
+        leftArmContainerParam.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE)
+        leftArmContainerParam.topMargin = (rectangleWidth).toInt()
+
+        relativeLayout?.addView(leftArmContainerLL, leftArmContainerParam)
+        leftArmContainerLL?.addView(leftArmLShapeView)
 
         /*viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {

@@ -70,6 +70,20 @@
             android:layout_centerHorizontal="true"
             android:background="@color/green"/>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:paddingRight="32dp"
+            >
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="32dp"
+
+                android:background="@color/red" />
+        </LinearLayout>
+
     </RelativeLayout>
 
 
