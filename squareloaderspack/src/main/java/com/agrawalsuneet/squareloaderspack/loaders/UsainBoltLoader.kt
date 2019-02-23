@@ -13,7 +13,7 @@ import com.agrawalsuneet.squareloaderspack.basicviews.RectangleView
 class UsainBoltLoader : LinearLayout, LoaderContract {
 
     var rectangleColor = resources.getColor(android.R.color.darker_gray)
-    var rectangleWidth: Int = 50
+    var rectangleWidth: Int = 60
 
     private var calWidth: Int = 0
     private var calHeight: Int = 0
@@ -23,10 +23,11 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
 
     private var leftLegRectangleView: RectangleView? = null
     private var rightLegLShapeView: LShapeView? = null
-    private var leftArmLShapeView: LShapeView? = null
-    private var rightArmLShapeView: LShapeView? = null
+    private var leftHandLShapeView: LShapeView? = null
+    private var rightHandLShapeView: LShapeView? = null
 
-    private var leftArmContainerLL: LinearLayout? = null
+    private var leftHandContainerLL: LinearLayout? = null
+    private var rightHandContainerLL: LinearLayout? = null
 
 
     constructor(context: Context) : super(context) {
@@ -128,30 +129,56 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
 
         relativeLayout?.addView(rightLegLShapeView, rightLegParam)
 
-        //left arm
-        leftArmLShapeView = LShapeView(context = context,
+        //left hand
+        leftHandLShapeView = LShapeView(context = context,
                 baseRectWidth = (3.5 * rectangleWidth).toInt(),
                 baseRectHeight = rectangleWidth,
                 verticalRectWidth = rectangleWidth,
                 verticalRectHeight = 2 * rectangleWidth,
                 color = rectangleColor)
 
-        leftArmLShapeView?.rotation = 135f
+        leftHandLShapeView?.rotation = 135f
 
-        //left arm container
-        leftArmContainerLL = LinearLayout(context)
-        leftArmContainerLL?.clipChildren = false
-        leftArmContainerLL?.clipToPadding = false
-        leftArmContainerLL?.setPadding(0, rectangleWidth, rectangleWidth, 0)
+        //left hand container
+        leftHandContainerLL = LinearLayout(context)
+        leftHandContainerLL?.clipChildren = false
+        leftHandContainerLL?.clipToPadding = false
+        leftHandContainerLL?.setPadding((0.5 * rectangleWidth).toInt(), rectangleWidth,
+                (1.5 * rectangleWidth).toInt(), (1 * rectangleWidth).toInt())
 
-        val leftArmContainerParam = RelativeLayout.LayoutParams(
+        val leftHandContainerParam = RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
 
-        leftArmContainerParam.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE)
-        leftArmContainerParam.topMargin = (rectangleWidth).toInt()
+        leftHandContainerParam.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE)
+        leftHandContainerParam.topMargin = (rectangleWidth).toInt()
 
-        relativeLayout?.addView(leftArmContainerLL, leftArmContainerParam)
-        leftArmContainerLL?.addView(leftArmLShapeView)
+        relativeLayout?.addView(leftHandContainerLL, leftHandContainerParam)
+        leftHandContainerLL?.addView(leftHandLShapeView)
+
+
+        //right hand
+        rightHandLShapeView = LShapeView(context = context,
+                baseRectWidth = (3.5 * rectangleWidth).toInt(),
+                baseRectHeight = rectangleWidth,
+                verticalRectWidth = rectangleWidth,
+                verticalRectHeight = 2 * rectangleWidth,
+                color = resources.getColor(android.R.color.holo_red_light))
+
+        rightHandLShapeView?.rotation = -45f
+
+        //right hand container
+        rightHandContainerLL = LinearLayout(context)
+        rightHandContainerLL?.clipChildren = false
+        rightHandContainerLL?.clipToPadding = false
+        rightHandContainerLL?.setPadding(4 * rectangleWidth, rectangleWidth, 0, rectangleWidth)
+
+        val rightHandContainerParam = RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
+
+        rightHandContainerParam.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE)
+
+        relativeLayout?.addView(rightHandContainerLL, rightHandContainerParam)
+        rightHandContainerLL?.addView(rightHandLShapeView)
 
         /*viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
