@@ -8,6 +8,7 @@ import android.view.ViewTreeObserver
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import com.agrawalsuneet.squareloaderspack.R
+import com.agrawalsuneet.squareloaderspack.basicviews.LShapeView
 import com.agrawalsuneet.squareloaderspack.basicviews.LoaderContract
 import com.agrawalsuneet.squareloaderspack.basicviews.RectangleView
 
@@ -22,6 +23,7 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
 
 
     var leftLegRectangleView: RectangleView? = null
+    var rightLegLShapeView: LShapeView? = null
 
     constructor(context: Context) : super(context) {
         initView()
@@ -81,15 +83,17 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
 
         addView(relativeLayout, relParam)
 
+        val legLength = 4 * rectangleWidth
+
         //left leg
-        leftLegRectangleView = RectangleView(context, rectangleWidth, 4 * rectangleWidth, rectangleColor)
+        leftLegRectangleView = RectangleView(context, rectangleWidth, legLength, rectangleColor)
 
         val leftLegParam = RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
         leftLegParam.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE)
         leftLegParam.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE)
 
-        leftLegParam.bottomMargin = rectangleWidth
+        leftLegParam.bottomMargin = (0.5 * rectangleWidth).toInt()
 
         leftLegRectangleView?.pivotX = (rectangleWidth / 2).toFloat()
         leftLegRectangleView?.pivotY = (-rectangleWidth).toFloat()
@@ -97,6 +101,26 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
         leftLegRectangleView?.rotation = 45f
 
         relativeLayout?.addView(leftLegRectangleView, leftLegParam)
+
+
+        //right leg
+        rightLegLShapeView = LShapeView(context,
+                baseRectWidth = (3.5 * rectangleWidth).toInt(),
+                baseRectHeight = rectangleWidth,
+                verticalRectWidth = rectangleWidth,
+                verticalRectHeight = (3.5 * rectangleWidth).toInt() ,
+                color = rectangleColor)
+
+        val rightLegParam = RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
+
+        rightLegParam.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE)
+        rightLegParam.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE)
+        rightLegParam.bottomMargin = (2 * rectangleWidth).toInt()
+
+        rightLegLShapeView?.rotation = -135f
+
+        relativeLayout?.addView(rightLegLShapeView, rightLegParam)
 
         /*viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
