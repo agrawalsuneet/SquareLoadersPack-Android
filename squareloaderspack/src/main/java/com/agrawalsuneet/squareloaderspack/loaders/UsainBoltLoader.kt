@@ -3,13 +3,25 @@ package com.agrawalsuneet.squareloaderspack.loaders
 import android.content.Context
 import android.util.AttributeSet
 import android.view.Gravity
+import android.view.ViewGroup
 import android.view.ViewTreeObserver
+import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import com.agrawalsuneet.squareloaderspack.R
 import com.agrawalsuneet.squareloaderspack.basicviews.LoaderContract
+import com.agrawalsuneet.squareloaderspack.basicviews.RectangleView
 
-class UsainBoltLoader : RelativeLayout, LoaderContract {
+class UsainBoltLoader : LinearLayout, LoaderContract {
 
+    var rectangleColor = resources.getColor(android.R.color.darker_gray)
+    var rectangleWidth: Int = 50
+
+    private var calWidthHeight: Int = 0
+
+    private var relativeLayout: RelativeLayout? = null
+
+
+    var leftLegRectangleView: RectangleView? = null
 
     constructor(context: Context) : super(context) {
         initView()
@@ -43,23 +55,55 @@ class UsainBoltLoader : RelativeLayout, LoaderContract {
         typedArray.recycle()
     }
 
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+
+        if (calWidthHeight == 0) {
+            calWidthHeight = 10 * rectangleWidth
+        }
+
+        setMeasuredDimension(calWidthHeight, calWidthHeight)
+    }
+
     private fun initView() {
         removeAllViews()
         removeAllViewsInLayout()
 
-        gravity = Gravity.CENTER
+        this.gravity = Gravity.CENTER_HORIZONTAL
 
+        relativeLayout = RelativeLayout(context)
 
-        val loaderView = this
+        if (calWidthHeight == 0) {
+            calWidthHeight = 10 * rectangleWidth
+        }
 
-        viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+        val relParam = RelativeLayout.LayoutParams(calWidthHeight, calWidthHeight)
+
+        addView(relativeLayout, relParam)
+
+        //left leg
+        leftLegRectangleView = RectangleView(context, rectangleWidth, 4 * rectangleWidth, rectangleColor)
+
+        val leftLegParam = RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
+        leftLegParam.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE)
+        leftLegParam.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE)
+
+        leftLegParam.bottomMargin = rectangleWidth
+
+        leftLegRectangleView?.pivotX = (rectangleWidth / 2).toFloat()
+        leftLegRectangleView?.pivotY = (-rectangleWidth).toFloat()
+
+        leftLegRectangleView?.rotation = 45f
+
+        relativeLayout?.addView(leftLegRectangleView, leftLegParam)
+
+        /*viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
 
-
-                val vto = loaderView.viewTreeObserver
-                vto.removeOnGlobalLayoutListener(this)
+                this@UsainBoltLoader.viewTreeObserver.removeOnGlobalLayoutListener(this)
             }
-        })
+        })*/
     }
 
 }

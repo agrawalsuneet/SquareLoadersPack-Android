@@ -59,15 +59,33 @@
 
      </LinearLayout>-->
 
+    <RelativeLayout
+        android:layout_width="160dp"
+        android:layout_height="160dp">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="32dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/green"/>
+
+    </RelativeLayout>
+
 
     <com.agrawalsuneet.squareloaderspack.basicviews.LShapeView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:lShapeColor="@color/indigo"
-        app:baseRectWidth="72dp"
+        android:layout_margin="16dp"
         app:baseRectHeight="16dp"
-        app:verticalRectWidth="16dp"
-        app:verticalRectHeight="72dp"/>
+        app:baseRectWidth="72dp"
+        app:lShapeColor="@color/indigo"
+        app:verticalRectHeight="72dp"
+        app:verticalRectWidth="16dp" />
+
+    <com.agrawalsuneet.squareloaderspack.loaders.UsainBoltLoader
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>
