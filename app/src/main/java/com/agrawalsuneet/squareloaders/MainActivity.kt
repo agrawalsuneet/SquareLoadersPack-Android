@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main_squaregrid)
+        setContentView(R.layout.activity_usainbolt)
 
-        supportActionBar?.title = "SquareGridLoader"
+        supportActionBar?.title = "UsainBoltLoader"
 
         container = findViewById(R.id.container)
 
@@ -37,9 +37,21 @@ class MainActivity : AppCompatActivity() {
         //initControls();
 
         //initSquareGridLoader()
+        //initUsainBoltLoader()
     }
 
-    private fun initSquareGridLoader(){
+    private fun initUsainBoltLoader() {
+        val usainBoltLoader = UsainBoltLoader(this,
+                60, ContextCompat.getColor(this, R.color.purple))
+                .apply {
+                    animDuration = 1000
+                    interpolator = LinearInterpolator()
+                }
+
+        container.addView(usainBoltLoader)
+    }
+
+    private fun initSquareGridLoader() {
         val squareGridLoader = SquareGridLoader(
                 this,
                 3,

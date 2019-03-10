@@ -12,13 +12,13 @@ import com.agrawalsuneet.squareloaderspack.R
  */
 class RectangleView : View, LoaderContract {
 
-    private var rectWidth: Int = 50
-    private var rectHeight: Int = 100
+    var rectWidth: Int = 50
+    var rectHeight: Int = 100
 
     private var rectColor: Int = resources.getColor(R.color.grey)
     private lateinit var rectPaint: Paint
 
-    constructor(context: Context) : super(context) {}
+    constructor(context: Context) : super(context)
 
     constructor(context: Context, rectWidth: Int, rectHeight: Int, color: Int) : super(context) {
         this.rectWidth = rectWidth

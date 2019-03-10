@@ -12,6 +12,23 @@
         <attr name="rectColor" format="color" />
     </declare-styleable>
 
+    <declare-styleable name="CircleView">
+        <attr name="circleRadius" format="dimension" />
+        <attr name="circleColor" format="color" />
+        <attr name="circleDrawOnlystroke" format="boolean" />
+        <attr name="circleStrokeWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="LShapeView">
+        <attr name="baseRectWidth" format="dimension" />
+        <attr name="baseRectHeight" format="dimension" />
+
+        <attr name="verticalRectWidth" format="dimension" />
+        <attr name="verticalRectHeight" format="dimension" />
+
+        <attr name="lShapeColor" format="color" />
+    </declare-styleable>
+
     <declare-styleable name="ZipZapLoader">
         <attr name="zipzap_squareLength" format="dimension" />
 
@@ -64,12 +81,19 @@
     </declare-styleable>
 
     <declare-styleable name="SquareGridLoader">
-        <attr name="squaregrid_squareCount" format="integer"/>
+        <attr name="squaregrid_squareCount" format="integer" />
         <attr name="squaregrid_squareLength" format="dimension" />
         <attr name="squaregrid_sqaureColor" format="color" />
         <attr name="squaregrid_animDuration" format="integer" />
         <attr name="squaregrid_animDelay" format="integer" />
         <attr name="squaregrid_interpolator" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="UsainBoltLoader">
+        <attr name="usainbolt_rectangleWidth" format="dimension" />
+        <attr name="usainbolt_rectangleColor" format="color" />
+        <attr name="usainbolt_animDuration" format="integer" />
+        <attr name="usainbolt_interpolator" format="reference" />
     </declare-styleable>
 
 </resources>
