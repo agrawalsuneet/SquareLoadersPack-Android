@@ -8,17 +8,17 @@ repositories {
 ext {
     PUBLISH_GROUP_ID = 'com.agrawalsuneet.androidlibs'
     PUBLISH_ARTIFACT_ID = 'squareloaderspack'
-    PUBLISH_VERSION = '0.4'
+    PUBLISH_VERSION = '0.5'
 }
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 26
-        versionCode 4
-        versionName "0.4"
+        targetSdkVersion 28
+        versionCode 5
+        versionName "0.5"
     }
 
     buildTypes {

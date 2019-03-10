@@ -5,27 +5,16 @@
 
 latest version : [ ![Download](https://api.bintray.com/packages/agrawalsuneet/androidlibs/squareloaderspack/images/download.svg) ](https://bintray.com/agrawalsuneet/androidlibs/squareloaderspack/_latestVersion)
 
-[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-SquareLoadersPack-green.svg?style=flat )]( https://android-arsenal.com/details/1/7246 )     [![CircleCI](https://circleci.com/gh/agrawalsuneet/SquareLoadersPack-Android.svg?style=svg)](https://circleci.com/gh/agrawalsuneet/SquareLoadersPack-Android)
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-SquareLoadersPack-green.svg?style=flat )]( https://android-arsenal.com/details/1/7246 )     [![CircleCI](https://circleci.com/gh/agrawalsuneet/SquareLoadersPack-Android.svg?style=svg)](https://circleci.com/gh/agrawalsuneet/SquareLoadersPack-Android)     [![CircleCI](https://circleci.com/gh/agrawalsuneet/SquareLoadersPack-Android.svg?style=svg)](https://circleci.com/gh/agrawalsuneet/SquareLoadersPack-Android)
+
+![squaregridloader](https://user-images.githubusercontent.com/12999622/44960467-15765880-aef8-11e8-80fb-5a834ca5c628.gif)    ![squaregridloader](https://user-images.githubusercontent.com/12999622/44960467-15765880-aef8-11e8-80fb-5a834ca5c628.gif)
 
 
-### SquareGridLoader
-![squaregridloader](https://user-images.githubusercontent.com/12999622/44960467-15765880-aef8-11e8-80fb-5a834ca5c628.gif)
-
-
-### ZipZapLoader
-![zipzaploader](https://user-images.githubusercontent.com/12999622/36222631-d8228584-11b9-11e8-8478-d1442891419c.gif)
-
-
-### WaveLoader
-![waveloader](https://user-images.githubusercontent.com/12999622/34330606-af613dc8-e916-11e7-9965-a686071002b9.gif)
+![zipzaploader](https://user-images.githubusercontent.com/12999622/36222631-d8228584-11b9-11e8-8478-d1442891419c.gif)    ![waveloader](https://user-images.githubusercontent.com/12999622/34330606-af613dc8-e916-11e7-9965-a686071002b9.gif)
 
 
 ### MusicPlayerLoader
-![musicplayerloader](https://user-images.githubusercontent.com/12999622/35103527-00136c14-fc5e-11e7-84a0-9c2bc47236be.gif)
-
-
-### RotatingSquareLoader
-![RotatingSquareLoader](https://user-images.githubusercontent.com/12999622/35877618-c2f139c8-0b6d-11e8-8c66-b830c27ac430.gif)
+![musicplayerloader](https://user-images.githubusercontent.com/12999622/35103527-00136c14-fc5e-11e7-84a0-9c2bc47236be.gif)    ![RotatingSquareLoader](https://user-images.githubusercontent.com/12999622/35877618-c2f139c8-0b6d-11e8-8c66-b830c27ac430.gif)
 
 Check all other loaders [here](https://agrawalsuneet.github.io/agrawalsuneet/opensourcecontribution/)
 
@@ -33,8 +22,45 @@ Check all other loaders [here](https://agrawalsuneet.github.io/agrawalsuneet/ope
 ## How To use
 include below dependency in build.gradle of application and compile it
 ```
-implementation 'com.agrawalsuneet.androidlibs:squareloaderspack:0.4'
+implementation 'com.agrawalsuneet.androidlibs:squareloaderspack:0.5'
 ```
+
+### UsainBoltLoader
+##### Through XML
+```
+<com.agrawalsuneet.squareloaderspack.loaders.UsainBoltLoader
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:usainbolt_animDuration="400"
+        app:usainbolt_interpolator="@android:interpolator/linear"
+        app:usainbolt_rectangleColor="@color/blue"
+        app:usainbolt_rectangleWidth="18dp"/>
+```
+##### Through Code
+* Kotlin
+```
+        val usainBoltLoader = UsainBoltLoader(this,
+                        60, ContextCompat.getColor(this, R.color.purple))
+                        .apply {
+                            animDuration = 1000
+                            interpolator = LinearInterpolator()
+                        }
+
+                container.addView(usainBoltLoader)
+```
+
+* Java
+```
+UsainBoltLoader usainBoltLoader = new UsainBoltLoader(this,
+                60, ContextCompat.getColor(this, R.color.purple));
+
+        usainBoltLoader.setAnimDuration(1000);
+        usainBoltLoader.setInterpolator(new LinearInterpolator());
+
+
+        container.addView(usainBoltLoader);
+```
+
 
 ### SquareGridLoader
 ##### Through XML

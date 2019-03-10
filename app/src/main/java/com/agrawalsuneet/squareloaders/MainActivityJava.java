@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import com.agrawalsuneet.squareloaderspack.loaders.MusicPlayerLoader;
 import com.agrawalsuneet.squareloaderspack.loaders.RotatingSquareLoader;
 import com.agrawalsuneet.squareloaderspack.loaders.SquareGridLoader;
+import com.agrawalsuneet.squareloaderspack.loaders.UsainBoltLoader;
 import com.agrawalsuneet.squareloaderspack.loaders.WaveLoader;
 import com.agrawalsuneet.squareloaderspack.loaders.ZipZapLoader;
 
@@ -80,5 +81,14 @@ public class MainActivityJava extends AppCompatActivity {
 
 
         container.addView(squareGridLoader);
+
+        UsainBoltLoader usainBoltLoader = new UsainBoltLoader(this,
+                60, ContextCompat.getColor(this, R.color.purple));
+
+        usainBoltLoader.setAnimDuration(1000);
+        usainBoltLoader.setInterpolator(new LinearInterpolator());
+
+
+        container.addView(usainBoltLoader);
     }
 }
