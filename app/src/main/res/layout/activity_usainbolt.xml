@@ -7,99 +7,61 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <!-- <LinearLayout
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:layout_margin="16dp"
-         android:gravity="center"
-         android:orientation="horizontal">
-
-
-         <com.agrawalsuneet.squareloaderspack.loaders.ZipZapLoader
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             app:zipzap_animDuration="100"
-             app:zipzap_firstSquareColor="@color/red"
-             app:zipzap_forthSquareColor="@color/red"
-             app:zipzap_fromScale="0.9"
-             app:zipzap_secondSquareColor="@color/red"
-             app:zipzap_squareLength="30dp"
-             app:zipzap_startLoadingDefault="true"
-             app:zipzap_thirdSquareColor="@color/red"
-             app:zipzap_toScale="0.8" />
-
-         <com.agrawalsuneet.squareloaderspack.loaders.ZipZapLoader
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_marginLeft="16dp"
-             android:layout_marginRight="16dp"
-             app:zipzap_animDuration="100"
-             app:zipzap_firstSquareColor="@color/amber"
-             app:zipzap_forthSquareColor="@color/amber"
-             app:zipzap_fromScale="0.9"
-             app:zipzap_secondSquareColor="@color/amber"
-             app:zipzap_squareLength="30dp"
-             app:zipzap_startLoadingDefault="true"
-             app:zipzap_thirdSquareColor="@color/amber"
-             app:zipzap_toScale="0.8" />
-
-         <com.agrawalsuneet.squareloaderspack.loaders.ZipZapLoader
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             app:zipzap_animDuration="100"
-             app:zipzap_firstSquareColor="@color/green"
-             app:zipzap_forthSquareColor="@color/green"
-             app:zipzap_fromScale="0.9"
-             app:zipzap_secondSquareColor="@color/green"
-             app:zipzap_squareLength="30dp"
-             app:zipzap_startLoadingDefault="true"
-             app:zipzap_thirdSquareColor="@color/green"
-             app:zipzap_toScale="0.8" />
-
-
-     </LinearLayout>-->
-
-    <!--<RelativeLayout
-        android:layout_width="160dp"
-        android:layout_height="160dp">
-
-        <ImageView
-            android:layout_width="16dp"
-            android:layout_height="32dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:background="@color/green"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:paddingRight="32dp"
-            >
-
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="32dp"
-
-                android:background="@color/red" />
-        </LinearLayout>
-
-    </RelativeLayout>
-
-
-    <com.agrawalsuneet.squareloaderspack.basicviews.LShapeView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:baseRectHeight="16dp"
-        app:baseRectWidth="72dp"
-        app:lShapeColor="@color/indigo"
-        app:verticalRectHeight="72dp"
-        app:verticalRectWidth="16dp" />-->
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <com.agrawalsuneet.squareloaderspack.loaders.UsainBoltLoader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:usainbolt_animDuration="500"
+            app:usainbolt_interpolator="@android:interpolator/linear"
+            app:usainbolt_rectangleColor="@color/red"
+            app:usainbolt_rectangleWidth="6dp"
+            android:layout_margin="8dp"/>
+
+        <com.agrawalsuneet.squareloaderspack.loaders.UsainBoltLoader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:usainbolt_animDuration="500"
+            app:usainbolt_interpolator="@android:interpolator/linear"
+            app:usainbolt_rectangleColor="@color/amber"
+            app:usainbolt_rectangleWidth="6dp"
+            android:layout_margin="8dp"/>
+
+        <com.agrawalsuneet.squareloaderspack.loaders.UsainBoltLoader
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:usainbolt_animDuration="500"
+            app:usainbolt_interpolator="@android:interpolator/linear"
+            app:usainbolt_rectangleColor="@color/green"
+            app:usainbolt_rectangleWidth="6dp"
+            android:layout_margin="8dp"/>
+
+
+    </LinearLayout>
 
     <com.agrawalsuneet.squareloaderspack.loaders.UsainBoltLoader
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:usainbolt_animDuration="400"
+        app:usainbolt_interpolator="@android:interpolator/linear"
+        app:usainbolt_rectangleColor="@color/blue"
+        app:usainbolt_rectangleWidth="18dp"
+        android:layout_margin="8dp"/>
+
+    <com.agrawalsuneet.squareloaderspack.loaders.UsainBoltLoader
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:usainbolt_animDuration="300"
+        app:usainbolt_interpolator="@android:interpolator/linear"
+        app:usainbolt_rectangleColor="@color/grey"
+        app:usainbolt_rectangleWidth="16dp"
+        android:layout_margin="8dp"/>
 
 
 </LinearLayout>

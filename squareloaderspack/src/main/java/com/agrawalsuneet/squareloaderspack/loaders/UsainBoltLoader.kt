@@ -16,8 +16,8 @@ import com.agrawalsuneet.squareloaderspack.basicviews.RectangleView
 
 class UsainBoltLoader : LinearLayout, LoaderContract {
 
+    var rectangleWidth: Int = 60
     var rectangleColor = resources.getColor(android.R.color.darker_gray)
-    var rectangleWidth: Int = 40
 
     var animDuration: Int = 500
     var interpolator: Interpolator = LinearInterpolator()
@@ -41,7 +41,6 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
     private var headCircleView: CircleView? = null
     private var headContainer: LinearLayout? = null
 
-
     constructor(context: Context) : super(context) {
         initView()
     }
@@ -56,20 +55,27 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
         initView()
     }
 
+    constructor(context: Context?, rectangleWidth: Int, rectangleColor: Int) : super(context) {
+        this.rectangleWidth = rectangleWidth
+        this.rectangleColor = rectangleColor
+        initView()
+    }
+
     override fun initAttributes(attrs: AttributeSet) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.RotatingSquareLoader, 0, 0)
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.UsainBoltLoader, 0, 0)
 
-        /*this.squareSideLength = typedArray
-                .getDimension(R.styleable.RotatingSquareLoader_rotatingsquare_squareSideLength, 200.0f)
-        this.strokeWidth = typedArray
-                .getDimension(R.styleable.RotatingSquareLoader_rotatingsquare_strokeWidth, 50.0f)
+        this.rectangleWidth = typedArray
+                .getDimensionPixelSize(R.styleable.UsainBoltLoader_usainbolt_rectangleWidth, 60)
+        this.rectangleColor = typedArray
+                .getColor(R.styleable.UsainBoltLoader_usainbolt_rectangleColor, resources.getColor(android.R.color.darker_gray))
 
-
-        this.squareColor = typedArray
-                .getColor(R.styleable.RotatingSquareLoader_rotatingsquare_sqaureColor, resources.getColor(R.color.green))
 
         this.animDuration = typedArray
-                .getInteger(R.styleable.RotatingSquareLoader_rotatingsquare_animDuration, 2000)*/
+                .getInteger(R.styleable.UsainBoltLoader_usainbolt_animDuration, 500)
+
+        this.interpolator = AnimationUtils.loadInterpolator(context,
+                typedArray.getResourceId(R.styleable.UsainBoltLoader_usainbolt_interpolator,
+                        android.R.anim.linear_interpolator))
 
         typedArray.recycle()
     }
@@ -88,7 +94,7 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
     override fun onVisibilityChanged(changedView: View, visibility: Int) {
         super.onVisibilityChanged(changedView, visibility)
 
-        /*if (visibility != VISIBLE) {
+        if (visibility == VISIBLE) {
             if (!shouldAnimate) {
                 shouldAnimate = true
                 initView()
@@ -96,7 +102,7 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
         } else {
             shouldAnimate = false
             initView()
-        }*/
+        }
     }
 
     private fun initView() {
