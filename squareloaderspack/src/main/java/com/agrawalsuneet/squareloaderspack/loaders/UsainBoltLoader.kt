@@ -9,6 +9,7 @@ import android.view.animation.*
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import com.agrawalsuneet.squareloaderspack.R
+import com.agrawalsuneet.squareloaderspack.basicviews.CircleView
 import com.agrawalsuneet.squareloaderspack.basicviews.LShapeView
 import com.agrawalsuneet.squareloaderspack.basicviews.LoaderContract
 import com.agrawalsuneet.squareloaderspack.basicviews.RectangleView
@@ -16,7 +17,7 @@ import com.agrawalsuneet.squareloaderspack.basicviews.RectangleView
 class UsainBoltLoader : LinearLayout, LoaderContract {
 
     var rectangleColor = resources.getColor(android.R.color.darker_gray)
-    var rectangleWidth: Int = 60
+    var rectangleWidth: Int = 40
 
     var animDuration: Int = 500
     var interpolator: Interpolator = LinearInterpolator()
@@ -36,6 +37,9 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
 
     private var leftHandContainerLL: LinearLayout? = null
     private var rightHandContainerLL: LinearLayout? = null
+
+    private var headCircleView: CircleView? = null
+    private var headContainer: LinearLayout? = null
 
 
     constructor(context: Context) : super(context) {
@@ -186,7 +190,7 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
                 baseRectHeight = rectangleWidth,
                 verticalRectWidth = rectangleWidth,
                 verticalRectHeight = 2 * rectangleWidth,
-                color = resources.getColor(android.R.color.holo_red_light))
+                color = rectangleColor)
 
         rightHandLShapeView?.rotation = -45f
 
@@ -203,6 +207,26 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
 
         relativeLayout?.addView(rightHandContainerLL, rightHandContainerParam)
         rightHandContainerLL?.addView(rightHandLShapeView)
+
+        //head circle view
+        headCircleView = CircleView(context = context,
+                circleRadius = (rectangleWidth / 1.5).toInt(),
+                circleColor = rectangleColor)
+
+
+        //head container
+        headContainer = LinearLayout(context)
+        headContainer?.clipChildren = false
+        headContainer?.clipToPadding = false
+        headContainer?.setPadding((2.75 * rectangleWidth).toInt(), (0.25 * rectangleWidth).toInt(), 0, 0)
+
+        val headContainerParam = RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
+
+        headContainerParam.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE)
+
+        relativeLayout?.addView(headContainer, headContainerParam)
+        headContainer?.addView(headCircleView)
 
         viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
