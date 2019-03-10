@@ -57,7 +57,7 @@
     <com.agrawalsuneet.squareloaderspack.loaders.UsainBoltLoader
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:usainbolt_animDuration="300"
+        app:usainbolt_animDuration="500"
         app:usainbolt_interpolator="@android:interpolator/linear"
         app:usainbolt_rectangleColor="@color/grey"
         app:usainbolt_rectangleWidth="16dp"

@@ -7,13 +7,12 @@ latest version : [ ![Download](https://api.bintray.com/packages/agrawalsuneet/an
 
 [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-SquareLoadersPack-green.svg?style=flat )]( https://android-arsenal.com/details/1/7246 )     [![CircleCI](https://circleci.com/gh/agrawalsuneet/SquareLoadersPack-Android.svg?style=svg)](https://circleci.com/gh/agrawalsuneet/SquareLoadersPack-Android)     [![CircleCI](https://circleci.com/gh/agrawalsuneet/SquareLoadersPack-Android.svg?style=svg)](https://circleci.com/gh/agrawalsuneet/SquareLoadersPack-Android)
 
-![squaregridloader](https://user-images.githubusercontent.com/12999622/44960467-15765880-aef8-11e8-80fb-5a834ca5c628.gif)    ![squaregridloader](https://user-images.githubusercontent.com/12999622/44960467-15765880-aef8-11e8-80fb-5a834ca5c628.gif)
+![usainboltloader](https://user-images.githubusercontent.com/12999622/54089745-52814300-4392-11e9-89d0-a5403b8ddb96.gif)    ![squaregridloader](https://user-images.githubusercontent.com/12999622/44960467-15765880-aef8-11e8-80fb-5a834ca5c628.gif)
 
 
 ![zipzaploader](https://user-images.githubusercontent.com/12999622/36222631-d8228584-11b9-11e8-8478-d1442891419c.gif)    ![waveloader](https://user-images.githubusercontent.com/12999622/34330606-af613dc8-e916-11e7-9965-a686071002b9.gif)
 
 
-### MusicPlayerLoader
 ![musicplayerloader](https://user-images.githubusercontent.com/12999622/35103527-00136c14-fc5e-11e7-84a0-9c2bc47236be.gif)    ![RotatingSquareLoader](https://user-images.githubusercontent.com/12999622/35877618-c2f139c8-0b6d-11e8-8c66-b830c27ac430.gif)
 
 Check all other loaders [here](https://agrawalsuneet.github.io/agrawalsuneet/opensourcecontribution/)
