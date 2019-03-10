@@ -9,18 +9,18 @@ import com.agrawalsuneet.squareloaderspack.R
 
 class LShapeView : View, LoaderContract {
 
-
     var baseRectWidth: Int = 400
     var baseRectHeight: Int = 100
 
     var verticalRectWidth: Int = 100
     var verticalRectHeight: Int = 400
 
-
     private var rectColor: Int = resources.getColor(android.R.color.darker_gray)
     private lateinit var rectPaint: Paint
 
-    constructor(context: Context) : super(context)
+    constructor(context: Context) : super(context){
+        initValues()
+    }
 
     constructor(context: Context, baseRectWidth: Int, baseRectHeight: Int,
                 verticalRectWidth: Int, verticalRectHeight: Int, color: Int) : super(context) {
@@ -32,12 +32,14 @@ class LShapeView : View, LoaderContract {
         initValues()
     }
 
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
-        initAttributes(attrs!!)
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+        initAttributes(attrs)
+        initValues()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        initAttributes(attrs!!)
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        initAttributes(attrs)
+        initValues()
     }
 
     override fun initAttributes(attrs: AttributeSet) {
@@ -56,7 +58,6 @@ class LShapeView : View, LoaderContract {
         this.rectColor = typedArray.getColor(R.styleable.LShapeView_lShapeColor,
                 resources.getColor(android.R.color.darker_gray))
         typedArray.recycle()
-        initValues()
     }
 
     private fun initValues() {
