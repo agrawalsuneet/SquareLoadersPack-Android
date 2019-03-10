@@ -3,6 +3,12 @@ package com.agrawalsuneet.squareloaderspack.loaders
 import android.content.Context
 import android.util.AttributeSet
 import android.view.Gravity
+import android.view.View
+import android.view.ViewTreeObserver
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.Animation
+import android.view.animation.LinearInterpolator
+import android.view.animation.RotateAnimation
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import com.agrawalsuneet.squareloaderspack.R
@@ -14,6 +20,8 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
 
     var rectangleColor = resources.getColor(android.R.color.darker_gray)
     var rectangleWidth: Int = 60
+
+    private var shouldAnimate: Boolean = true
 
     private var calWidth: Int = 0
     private var calHeight: Int = 0
@@ -73,6 +81,20 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
         setMeasuredDimension(calWidth, calHeight)
     }
 
+    override fun onVisibilityChanged(changedView: View, visibility: Int) {
+        super.onVisibilityChanged(changedView, visibility)
+
+        /*if (visibility != VISIBLE) {
+            if (!shouldAnimate) {
+                shouldAnimate = true
+                initView()
+            }
+        } else {
+            shouldAnimate = false
+            initView()
+        }*/
+    }
+
     private fun initView() {
         removeAllViews()
         removeAllViewsInLayout()
@@ -80,6 +102,8 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
         this.gravity = Gravity.CENTER_HORIZONTAL
 
         relativeLayout = RelativeLayout(context)
+        relativeLayout?.clipChildren = false
+        relativeLayout?.clipToPadding = false
 
         if (calWidth == 0 || calHeight == 0) {
             calWidth = 10 * rectangleWidth
@@ -102,7 +126,7 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
 
         leftLegParam.bottomMargin = (0.5 * rectangleWidth).toInt()
 
-        leftLegRectangleView?.pivotX = (rectangleWidth / 2).toFloat()
+        leftLegRectangleView?.pivotX = (0.5 * rectangleWidth).toFloat()
         leftLegRectangleView?.pivotY = (-rectangleWidth).toFloat()
 
         leftLegRectangleView?.rotation = 45f
@@ -180,12 +204,91 @@ class UsainBoltLoader : LinearLayout, LoaderContract {
         relativeLayout?.addView(rightHandContainerLL, rightHandContainerParam)
         rightHandContainerLL?.addView(rightHandLShapeView)
 
-        /*viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+        viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
+
+                if (shouldAnimate) {
+                    startLoading()
+                }
 
                 this@UsainBoltLoader.viewTreeObserver.removeOnGlobalLayoutListener(this)
             }
-        })*/
+        })
+    }
+
+    private fun startLoading() {
+        //left leg animation
+        val leftLegAnim = getLeftLegAnimation()
+        leftLegRectangleView?.startAnimation(leftLegAnim)
+
+        //right leg animation
+        val rightLegAnim = getRightLegAnimation()
+        rightLegLShapeView?.startAnimation(rightLegAnim)
+
+        //left hand animation
+        val leftHandAnim = getLeftHandAnimation()
+        leftHandLShapeView?.startAnimation(leftHandAnim)
+
+        //right hand animation
+        val rightHandAnim = getRightHandAnimation()
+        rightHandLShapeView?.startAnimation(rightHandAnim)
+
+    }
+
+    private fun getLeftLegAnimation(): RotateAnimation {
+        val pivotX = (0.5 * rectangleWidth).toFloat()
+        val pivotY = (-rectangleWidth).toFloat()
+
+        val rotateAnimation = RotateAnimation(0f, -90f, pivotX, pivotY)
+
+        rotateAnimation.duration = 10000
+        rotateAnimation.repeatCount = Animation.INFINITE
+        rotateAnimation.repeatMode = Animation.REVERSE
+        rotateAnimation.interpolator = LinearInterpolator()
+
+        return rotateAnimation
+    }
+
+    private fun getRightLegAnimation(): RotateAnimation {
+        val pivotX = (1.5 * rectangleWidth).toFloat()
+        val pivotY = 0f
+
+        val rotateAnimation = RotateAnimation(0f, 90f, pivotX, pivotY)
+
+        rotateAnimation.duration = 10000
+        rotateAnimation.repeatCount = Animation.INFINITE
+        rotateAnimation.repeatMode = Animation.REVERSE
+        rotateAnimation.interpolator = LinearInterpolator()
+
+        return rotateAnimation
+    }
+
+    private fun getLeftHandAnimation(): RotateAnimation {
+        val pivotX = (3 * rectangleWidth).toFloat()
+        val pivotY = (0.5 * rectangleWidth).toFloat()
+
+        val rotateAnimation = RotateAnimation(0f, -160f, pivotX, pivotY)
+
+        rotateAnimation.duration = 10000
+        rotateAnimation.repeatCount = Animation.INFINITE
+        rotateAnimation.repeatMode = Animation.REVERSE
+        rotateAnimation.interpolator = LinearInterpolator()
+
+        return rotateAnimation
+    }
+
+    private fun getRightHandAnimation(): RotateAnimation {
+        val pivotX = (0.5 * rectangleWidth).toFloat()
+        val pivotY = (1.5 * rectangleWidth).toFloat()
+
+        val rotateAnimation = RotateAnimation(0f, 170f, pivotX, pivotY)
+
+        rotateAnimation.duration = 10000
+        rotateAnimation.repeatCount = Animation.INFINITE
+        rotateAnimation.repeatMode = Animation.REVERSE
+        rotateAnimation.interpolator = LinearInterpolator()
+
+        return rotateAnimation
     }
 
 }
